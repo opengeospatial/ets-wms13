@@ -1203,7 +1203,7 @@
                         <xsl:value-of select="functions:encode($layer-info/LayerInfo/@name)"/>
                      </ctl:param>
                      <ctl:param name="BbOx">
-                        <xsl:value-of select="$layer-info/LayerInfo/@bbox"/>
+                        <xsl:value-of select="functions:encode($layer-info/LayerInfo/@bbox)"/>
                      </ctl:param>
                      <ctl:param name="CrS">
                         <xsl:value-of select="functions:encode($layer-info/LayerInfo/@crs)"/>
