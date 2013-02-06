@@ -105,9 +105,6 @@
                   Does the image above depict a map of the Blue Lake vicinity with a surrounding neatline?
                </p>
                <p>
-                  Refer to the <a href="images/bluelake_features.gif" target="_blank">overview</a> for a diagram of the Blue Lake vicinity features.
-               </p>
-               <p>
                   <input type="submit" name="submit" value="yes"/>
                   <input type="submit" name="submit" value="no"/>
                </p>
@@ -178,13 +175,9 @@
                   </tr>
                </table>
                <p>
-                   In the picture on the left, Goose Island, Blue Lake, and Ashton should be above State Forest.
-                   In the picture on the right, State Forest should be above Ashton, Blue Lake, and Goose Island.
+                   In the picture on the left, Goose Island, Blue Lake, and Ashton should overlay State Forest.
+                   In the picture on the right, State Forest should be on top of Ashton, Blue Lake, and Goose Island.
                    Are the pictures correct?
-               </p>
-               <p>
-                  Refer to the <a href="images/bluelake_features.gif" target="_blank">Overview of Blue Lake vicinity features</a>
-                  for a diagram of the relevant features.
                </p>
                <p>
                   <input xmlns="" type="submit" name="submit" value="yes"/>
