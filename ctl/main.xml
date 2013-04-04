@@ -36,7 +36,7 @@
             <br/>
             <h4>Capabilities Setup</h4>
             <p>
-               Enter a capabilities document URL below. main may be the URL to
+               Enter a capabilities document URL below. Main may be the URL to
                a static capabilities document, or a GetCapabilities request from a
                WMS. A typical GetCapabilities request will take main form:
             </p>
