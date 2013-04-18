@@ -114,7 +114,8 @@
                      </ctl:url>
                      <ctl:method>get</ctl:method>
                      <ctl:param name="FoRmAt">
-                        <xsl:value-of select="functions:encode($image-format)"/>
+                        <xsl:value-of select="$image-format"/>
+                        <!--<xsl:value-of select="functions:encode($image-format)"/>-->
                      </ctl:param>
                      <ctl:param name="ReQuEsT">GetMap</ctl:param>
                      <ctl:param name="VeRsIoN">
@@ -145,6 +146,8 @@
                   </ctl:request>
                </xsl:variable>
                <xsl:if test="functions:mime-match($response/response/headers/header[functions:to-lowercase(@name) = 'content-type'], $image-format) = 'false'">
+                  <ctl:message>FAILURE: Unexpected Content-Type header value.</ctl:message>
+                  <ctl:message>Expected <xsl:value-of select="$image-format"/> but received <xsl:value-of select="$response/response/headers/header[functions:to-lowercase(@name) = 'content-type']"/></ctl:message>
                   <ctl:fail/>
                </xsl:if>
             </xsl:otherwise>
@@ -191,7 +194,8 @@
                            <ctl:param name="ReQuEsT">GetFeatureInfo</ctl:param>
                            <ctl:param name="StYlEs"/>
                            <ctl:param name="FoRmAt">
-                              <xsl:value-of select="functions:encode($image-format)"/>
+                             <xsl:value-of select="$image-format"/>
+                             <!--<xsl:value-of select="functions:encode($image-format)"/>-->
                            </ctl:param>
                            <ctl:param name="J">64</ctl:param>
                            <ctl:param name="CrS">
@@ -228,6 +232,8 @@
                         </ctl:request>
                      </xsl:variable>
                      <xsl:if test="functions:mime-match($response/response/headers/header[functions:to-lowercase(@name) = 'content-type'], $featureinfo-format) = 'false'">
+                       <ctl:message>FAILURE: Unexpected Content-Type header value.</ctl:message>
+                  <ctl:message>Expected <xsl:value-of select="$featureinfo-format"/> but received <xsl:value-of select="$response/response/headers/header[functions:to-lowercase(@name) = 'content-type']"/></ctl:message>
                         <ctl:fail/>
                      </xsl:if>
                   </xsl:otherwise>
