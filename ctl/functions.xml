@@ -56,14 +56,14 @@
 
          <xsl:variable name="crs">
             <xsl:choose>
-               <xsl:when test="$root-layer/descendant-or-self::wms:Layer[wms:Name = $layer-name]/ancestor-or-self::wms:Layer[wms:CRS = $preferred-crs]">
+               <xsl:when test="$root-layer//wms:Layer[wms:Name = $layer-name]/ancestor-or-self::wms:Layer[wms:CRS = $preferred-crs]">
                   <xsl:value-of select="$preferred-crs"/>
                </xsl:when>
-               <xsl:when          test="$root-layer/descendant-or-self::wms:Layer[wms:Name = $layer-name]/ancestor-or-self::wms:Layer/wms:BoundingBox">
-                  <xsl:value-of select="$root-layer/descendant-or-self::wms:Layer[wms:Name = $layer-name]/ancestor-or-self::wms:Layer/wms:BoundingBox[1]/@CRS"/>
+               <xsl:when test="$root-layer//wms:Layer[wms:Name = $layer-name]/ancestor-or-self::wms:Layer/wms:BoundingBox">
+                  <xsl:value-of select="$root-layer//wms:Layer[wms:Name = $layer-name]/ancestor-or-self::wms:Layer[1]/wms:BoundingBox[1]/@CRS"/>
                </xsl:when>
-               <xsl:when          test="$root-layer/descendant-or-self::wms:Layer[wms:Name = $layer-name]/ancestor-or-self::wms:Layer/wms:CRS">
-                  <xsl:value-of select="$root-layer/descendant-or-self::wms:Layer[wms:Name = $layer-name]/ancestor-or-self::wms:Layer/wms:CRS[1]"/>
+               <xsl:when test="$root-layer//wms:Layer[wms:Name = $layer-name]/ancestor-or-self::wms:Layer/wms:CRS">
+                  <xsl:value-of select="$root-layer//wms:Layer[wms:Name = $layer-name]/ancestor-or-self::wms:Layer[1]/wms:CRS[1]"/>
                </xsl:when>
                <xsl:otherwise>NoCRSForLayer</xsl:otherwise>
             </xsl:choose>
@@ -278,9 +278,11 @@ MIME parameters don't have to match anymore - see issue 24, MIME type test too s
          <xsl:value-of select="boolean(functions:mime-match($format, 'image/png') = 'true' or functions:mime-match($format, 'image/gif') = 'true' or functions:mime-match($format, 'image/jpeg') = 'true')"/>
       </ctl:code>
    </ctl:function>
-
+   
    <ctl:function name="functions:encode">
-      <ctl:param name="s">String to encode</ctl:param>
-      <ctl:java class="java.net.URLEncoder" method="encode"/>
+      <ctl:param name="str">String to be percent-encoded.</ctl:param>
+      <ctl:code>
+         <xsl:value-of select="encode-for-uri($str)"/>
+      </ctl:code>
    </ctl:function>
 </ctl:package>

@@ -3,7 +3,9 @@ WMS 1.3.0 Test Suite Release Notes
 
 Changes in r5
 ~~~~~~~~~~~~~
-* Fixed XPath errors in getmap.xml.
+* Fixed functions:layer-info so only one CRS reference is included in result.
+* Modified functions:encode to use encode-for-uri XPath function instead of deprecated java.net.URLEncoder.encode method.
+* Fixed various XPath errors in getmap.xml: A sequence of more than one item is not allowed as the first argument of string()
 * Added assertion error messages to basic_elements.xml.
 * Fixed various typos.
 
