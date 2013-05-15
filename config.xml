@@ -17,8 +17,16 @@
         <name>r6</name>
         <sources>
           <source>wms/1.3.0/ctl</source>
+          <source>wms/1.3.0/profiles/fps-1.1/ctl</source>
         </sources>
         <webdir>wms/1.3.0/web</webdir>
+        <profile>
+          <namespace-uri>http://cite.opengeospatial.org/wms/fps</namespace-uri>
+          <prefix>fps</prefix>
+          <local-name>wms-profile-fps</local-name>
+          <title>Feature Portrayal Service (FPS)</title>
+          <description>Verifies conformance to OGC 05-078r4 (Conformance Class C).</description>
+        </profile>
       </revision>
     </version>
   </standard>
