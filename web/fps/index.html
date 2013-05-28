@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Feature Portrayal Service (FPS)</title>
+    <style type="text/css" media="screen,print">
+    body {
+      color: black;
+      background: white;
+    }
+    h1, h2 {
+      font-family: sans-serif;
+      color: #000099;
+      text-align: left;
+    }
+    h1 { font-size: 1.75em; }
+    h2 { font-size: 1.50em; }
+    </style>
+  </head>
+  <body>
+    <h1>Feature Portrayal Service (FPS)</h1>
+    <h2>Overview</h2>
+    <p>A Feature Portrayal Service (FPS) is a specialized "component" WMS implementation 
+    that is able to portray feature data obtained from a remote WFS. It supports user-defined 
+    layers and styles and in general has no pre-defined layers; in this sense it is loosely 
+    coupled to any data sources. A conforming FPS implementation must satisfy the requirements 
+    of <strong>Conformance Class C</strong> in the SLD profile specification (OGC 05-078r4), 
+    plus all applicable requirements in other relevant specifications (see Figure 1).</p>
+
+    <p>
+      <figure>
+        <figcaption><strong>Figure 1 - Relevant specifications</strong></figcaption>
+        <img src="WMS-SLD.png" alt="Relevant specifications"/>
+      </figure>
+    </p>
+
+    <p>A styled layer descriptor (SLD) is an XML resource containing definitions that associate 
+    feature types with styling rules. Its content model is described in section 11 of the SLD 
+    profile specification. Styling rules may be represented using the XML syntax defined in 
+    the <em>Symbology Encoding</em> specification.</p>
+
+    <h2>References</h2>
+    <ul>
+      <li>[OGC-05-078r4] <a href="http://portal.opengeospatial.org/files/?artifact_id=22364" 
+    target="_blank">Styled Layer Descriptor Profile, Version 1.1</a></li>
+      <li>[OGC-05-077r4] <a href="http://portal.opengeospatial.org/files/?artifact_id=22364" 
+    target="_blank">Symbology Encoding Implementation Specification, Version 1.1</a></li>
+      <li>[OGC-06-042] <a href="http://portal.opengeospatial.org/files/?artifact_id=22364" 
+    target="_blank">WMS 1.3 Implementation Specification</a> (ISO 19128:2005)</li>
+    </ul>
+
+    <h2>What is tested</h2>
+    <ul>
+      <li>remote WFS (v1.1: <a target="_blank" 
+      href="http://cite.demo.opengeo.org:8080/geoserver_wfs11/wfs?service=WFS&amp;request=GetCapabilities&amp;version=1.1.0">
+      service capabilities</a>)</li>
+      <li>remote SLD</li>
+      <li>inline SLD</li>
+      <li>user-defined layers</li>
+      <li>user-defined styles</li>
+    </ul>
+
+    <h2>What is not tested</h2>
+    <ul>
+      <li>GetLegendGraphic</li>
+      <li>inline GML data</li>
+    </ul>
+
+    <h2>Release notes</h2>
+    <h3>r1 (2013-05-30)</h3>
+    <p>Initial release (beta).</p>
+
+  </body>
+</html>
