@@ -1,6 +1,10 @@
 WMS 1.3.0 Test Suite Release Notes
 ----------------------------------
 
+r6 (2013-05-30)
+---------------
+* Added FPS profile (WMS-SLD 1.1, Conformance Class C).
+
 Changes in r5
 ~~~~~~~~~~~~~
 * Fixed functions:layer-info so only one CRS reference is included in result.
