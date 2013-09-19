@@ -14,7 +14,7 @@
         <description>Verifies conformance to ISO 19128:2005.</description>
       </suite>
       <revision>
-        <name>r7</name>
+        <name>r8</name>
         <sources>
           <source>wms/1.3.0/ctl</source>
         </sources>
