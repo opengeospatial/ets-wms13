@@ -660,7 +660,7 @@
     <ctl:link title="WMS 1.3.0 section 7.2.4.6.6">http://cite.opengeospatial.org/OGCTestData/wms/1.3.0/spec/wms1_3.html#wmsops.getcapabilities.response.layer_properties.ex_geobbox</ctl:link>
     <ctl:code>
       <xsl:for-each select="wms:Capability//wms:EX_GeographicBoundingBox">
-        <xsl:if test="wms:westBoundLongitude &gt; wms:eastBoundLongitude or wms:southBoundLatitude &gt; wms:northBoundLatitude">
+        <xsl:if test="xsd:float(wms:westBoundLongitude) &gt; xsd:float(wms:eastBoundLongitude) or xsd:float(wms:southBoundLatitude) &gt; xsd:float(wms:northBoundLatitude)">
           <ctl:message>
             <xsl:text>The EX_GeographicBoundingBox for Layer </xsl:text>
             <xsl:choose>
