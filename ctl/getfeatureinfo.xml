@@ -32,7 +32,7 @@
             <xsl:otherwise>
                <ctl:call-test name="getfeatureinfo:exceptions"/>
                <xsl:choose>
-                  <xsl:when test="not(wms:Capability//wms:Layer[functions:boolean-as-integer(@queryable) = 1]/wms:Name)">
+                  <xsl:when test="not(wms:Capability//wms:Layer[@queryable and functions:boolean-as-integer(@queryable) = 1]/wms:Name)">
                      <ctl:message>No queryable layers in capabilities XML.</ctl:message>
                      <xsl:if test="$queryable='queryable'">
                         <ctl:fail/>
@@ -107,7 +107,7 @@
          <ctl:call-test name="getfeatureinfo:invalid-query_layers"/>
          <ctl:call-test name="getfeatureinfo:query_layers-not-queryable"/>
          <xsl:variable name="capabilities" select="."/>
-         <ctl:for-each select="wms:Capability//wms:Layer[wms:Name and functions:boolean-as-integer(@queryable) = 1]/wms:Name">
+         <ctl:for-each select="wms:Capability//wms:Layer[wms:Name and @queryable and functions:boolean-as-integer(@queryable) = 1]/wms:Name">
             <ctl:call-test name="getfeatureinfo:each-queryable-layer">
                <ctl:with-param name="capabilities" select="$capabilities"/>
                <ctl:with-param name="layer" select="string(.)" label="each queryable layer" label-expr="concat('layer &quot;', ., '&quot;')"/>
