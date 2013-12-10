@@ -1,6 +1,10 @@
 WMS 1.3.0 Test Suite Release Notes
 ----------------------------------
 
+r8 (2013-12-10)
+-------------------
+* Fixed 912 handling of queryable attribute in GFI requests. 
+
 r7 (2013-09-19)
 ---------------
 * Removed FPS tests to separate test suite (wms-sld).
