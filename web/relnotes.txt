@@ -1,9 +1,14 @@
 WMS 1.3.0 Test Suite Release Notes
 ----------------------------------
 
+r9
+----------------
+* Fixed release notes - missing entry in r8 about issue 829 fixed. 
+
 r8 (2013-12-10)
--------------------
-* Fixed 912 handling of queryable attribute in GFI requests. 
+----------------
+* Fixed 912 Handling of queryable attribute in GFI requests. 
+* Fixed 829 Problem with negative coordinates in boundingbox
 
 r7 (2013-09-19)
 ---------------
