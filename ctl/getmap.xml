@@ -304,8 +304,8 @@
             <ctl:call-function name="functions:layer-info">
               <ctl:with-param name="root-layer" select="wms:Capability/wms:Layer"/>
               <ctl:with-param name="preferred-name" select="$layer"/>
-              <ctl:with-param name="preferred-crs"/>
-              <ctl:with-param name="preferred-bbox"/>
+              <ctl:with-param name="preferred-crs">CRS:84</ctl:with-param>
+              <ctl:with-param name="preferred-bbox">-0.0025,-0.0025,0.0025,0.0025</ctl:with-param>
               <ctl:with-param name="preferred-width">200</ctl:with-param>
               <ctl:with-param name="preferred-height">200</ctl:with-param>
             </ctl:call-function>
@@ -1935,8 +1935,8 @@
         <ctl:call-function name="functions:layer-info">
           <ctl:with-param name="root-layer" select="$capabilities/wms:Capability/wms:Layer"/>
           <ctl:with-param name="preferred-name" select="$layer"/>
-          <ctl:with-param name="preferred-crs"></ctl:with-param>
-          <ctl:with-param name="preferred-bbox"></ctl:with-param>
+          <ctl:with-param name="preferred-crs">CRS:84</ctl:with-param>
+          <ctl:with-param name="preferred-bbox">-0.0025,-0.0025,0.0025,0.0025</ctl:with-param>
           <ctl:with-param name="preferred-width">100</ctl:with-param>
           <ctl:with-param name="preferred-height">100</ctl:with-param>
         </ctl:call-function>
@@ -2002,8 +2002,8 @@
               <ctl:with-param name="root-layer" select="wms:Capability/wms:Layer"/>
               <!-- select last layer in list -->
               <ctl:with-param name="preferred-name" select="string(wms:Capability//wms:Layer[wms:Name and wms:Style/wms:Name = $style and position()=last()]/wms:Name)"/>
-              <ctl:with-param name="preferred-crs"></ctl:with-param>
-              <ctl:with-param name="preferred-bbox"></ctl:with-param>
+              <ctl:with-param name="preferred-crs">CRS:84</ctl:with-param>
+              <ctl:with-param name="preferred-bbox">-0.0025,-0.0025,0.0025,0.0025</ctl:with-param>
               <ctl:with-param name="preferred-width">100</ctl:with-param>
               <ctl:with-param name="preferred-height">100</ctl:with-param>
             </ctl:call-function>
@@ -2142,8 +2142,8 @@
               <ctl:with-param name="root-layer" select="wms:Capability/wms:Layer"/>
               <!-- select last layer in list -->
               <ctl:with-param name="preferred-name" select="string(wms:Capability//wms:Layer[wms:Name and wms:Style/wms:Name = $style and position()=last()]/wms:Name)"/>
-              <ctl:with-param name="preferred-crs"></ctl:with-param>
-              <ctl:with-param name="preferred-bbox"></ctl:with-param>
+              <ctl:with-param name="preferred-crs">CRS:84</ctl:with-param>
+              <ctl:with-param name="preferred-bbox">-0.0025,-0.0025,0.0025,0.0025</ctl:with-param>
               <ctl:with-param name="preferred-width">100</ctl:with-param>
               <ctl:with-param name="preferred-height">100</ctl:with-param>
             </ctl:call-function>
@@ -2215,8 +2215,8 @@
               <ctl:with-param name="root-layer" select="wms:Capability/wms:Layer"/>
               <!-- select last layer in list -->
               <ctl:with-param name="preferred-name" select="string(wms:Capability//wms:Layer[wms:Name and wms:Style/wms:Name = $style and position()=last()]/wms:Name)"/>
-              <ctl:with-param name="preferred-crs"></ctl:with-param>
-              <ctl:with-param name="preferred-bbox"></ctl:with-param>
+              <ctl:with-param name="preferred-crs">CRS:84</ctl:with-param>
+              <ctl:with-param name="preferred-bbox">-0.0025,-0.0025,0.0025,0.0025</ctl:with-param>
               <ctl:with-param name="preferred-width">100</ctl:with-param>
               <ctl:with-param name="preferred-height">100</ctl:with-param>
             </ctl:call-function>
@@ -2577,8 +2577,8 @@
               <ctl:with-param name="root-layer" select="wms:Capability/wms:Layer"/>
               <!-- select last layer in list -->
               <ctl:with-param name="preferred-name" select="string(wms:Capability//wms:Layer[wms:Name and wms:Style/wms:Name = $style and position()=last()]/wms:Name)"/>
-              <ctl:with-param name="preferred-crs"></ctl:with-param>
-              <ctl:with-param name="preferred-bbox"></ctl:with-param>
+              <ctl:with-param name="preferred-crs">CRS:84</ctl:with-param>
+          <ctl:with-param name="preferred-bbox">-0.0025,-0.0025,0.0025,0.0025</ctl:with-param>
               <ctl:with-param name="preferred-width">100</ctl:with-param>
               <ctl:with-param name="preferred-height">100</ctl:with-param>
             </ctl:call-function>
@@ -2675,8 +2675,8 @@
               <ctl:with-param name="root-layer" select="wms:Capability/wms:Layer"/>
               <!-- select last layer in list -->
               <ctl:with-param name="preferred-name" select="string(//wms:Layer[wms:Name and wms:Style/wms:Name = $style and position()=last()]/wms:Name)"/>
-              <ctl:with-param name="preferred-crs"></ctl:with-param>
-              <ctl:with-param name="preferred-bbox"></ctl:with-param>
+              <ctl:with-param name="preferred-crs">CRS:84</ctl:with-param>
+          <ctl:with-param name="preferred-bbox">-0.0025,-0.0025,0.0025,0.0025</ctl:with-param>
               <ctl:with-param name="preferred-width">100</ctl:with-param>
               <ctl:with-param name="preferred-height">100</ctl:with-param>
             </ctl:call-function>
@@ -2748,8 +2748,8 @@
               <ctl:with-param name="root-layer" select="wms:Capability/wms:Layer"/>
               <!-- select last layer in list -->
               <ctl:with-param name="preferred-name" select="string(//wms:Layer[wms:Name and wms:Style/wms:Name = $style and position()=last()]/wms:Name)"/>
-              <ctl:with-param name="preferred-crs"></ctl:with-param>
-              <ctl:with-param name="preferred-bbox"></ctl:with-param>
+              <ctl:with-param name="preferred-crs">CRS:84</ctl:with-param>
+          <ctl:with-param name="preferred-bbox">-0.0025,-0.0025,0.0025,0.0025</ctl:with-param>
               <ctl:with-param name="preferred-width">100</ctl:with-param>
               <ctl:with-param name="preferred-height">100</ctl:with-param>
             </ctl:call-function>
@@ -2821,8 +2821,8 @@
               <ctl:with-param name="root-layer" select="$capabilities/wms:Capability/wms:Layer"/>
               <!-- select last layer in list -->
               <ctl:with-param name="preferred-name" select="string($capabilities//wms:Layer[wms:Name and wms:Style/wms:Name = $style and position()=last()]/wms:Name)"/>
-              <ctl:with-param name="preferred-crs"></ctl:with-param>
-              <ctl:with-param name="preferred-bbox"></ctl:with-param>
+              <ctl:with-param name="preferred-crs">CRS:84</ctl:with-param>
+          <ctl:with-param name="preferred-bbox">-0.0025,-0.0025,0.0025,0.0025</ctl:with-param>
               <ctl:with-param name="preferred-width">100</ctl:with-param>
               <ctl:with-param name="preferred-height">100</ctl:with-param>
             </ctl:call-function>
@@ -2837,7 +2837,7 @@
                 <xsl:value-of select="functions:encode($style)"/>
               </ctl:param>
               <ctl:param name="BbOx">
-                <xsl:value-of select="$layer-info/LayerInfo/@bbox"/>
+                <xsl:value-of select="functions:encode($layer-info/LayerInfo/@bbox)"/>
               </ctl:param>
               <ctl:param name="CrS">
                 <xsl:value-of select="functions:encode($layer-info/LayerInfo/@crs)"/>
