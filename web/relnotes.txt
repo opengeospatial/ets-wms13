@@ -1,9 +1,9 @@
 WMS 1.3.0 Test Suite Release Notes
-----------------------------------
+==================================
 
-r9
-----------------
-* Fixed release notes - missing entry in r8 about issue 829 fixed. 
+r9 (2014-MM-DD)
+---------------
+* Fix CITE-950: XPath error in getfeatureinfo:query_layers-not-queryable
 
 r8 (2013-12-10)
 ----------------
