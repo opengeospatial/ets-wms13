@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # OGC Web Map Service (WMS)  1.3.0 Test-Suite
 
 The OGC Web Map Service (WMS)  1.3.0 Test-Suite provides the Executable Test Script (ETS) to test implementations against the following specification(s):
@@ -33,3 +34,9 @@ The [cite-forum](http://cite.opengeospatial.org/forum) is where software develop
 
 Visit the [CITE website](http://cite.opengeospatial.org/) to get more information about the CITE program and tools.
 
+=======
+ets-wms130
+==========
+
+Repository for the Exectutable Test Suite for WMS 1.3.0
+>>>>>>> 140cf9084fb659c061b9eb91c7f62b591b3dc805
