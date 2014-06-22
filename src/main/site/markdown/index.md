@@ -115,8 +115,6 @@ second increments during a one minute interval have been defined.
 The features are organized into layers as shown in table below. The layers may
 be named in any fashion, but must be titled exactly as shown in the table.  
 
-Layer titles and features
-
  <table border="1">
         <caption align="bottom">Layer titles and features</caption>
         <tr><td valign="top"><b>Layer Title</b></td><td valign="top"><b>Type</b></td>
