@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # OGC Web Map Service (WMS)  1.3.0 Test-Suite
 
 The OGC Web Map Service (WMS)  1.3.0 Test-Suite provides the Executable Test Script (ETS) to test implementations against the following specification(s):
@@ -20,7 +19,7 @@ build the test suite run maven from the root directory.
 To test an application run:
     % mvn test
     
-More information about how to build and install the test in TEAM Engine at the [TEAM Engine project site](  https://github.com/opengeospatial/teamengine/tree/master/src/site)
+More information about how to build and install the test in TEAM Engine at the [TEAM Engine project site](https://github.com/opengeospatial/teamengine/tree/master/src/site)
 
 ## Bugs
 
@@ -39,4 +38,4 @@ ets-wms130
 ==========
 
 Repository for the Exectutable Test Suite for WMS 1.3.0
->>>>>>> 140cf9084fb659c061b9eb91c7f62b591b3dc805
+https://github.com/opengeospatial/ets-wms13/
