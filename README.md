@@ -3,6 +3,7 @@
 The OGC Web Map Service (WMS)  1.3.0 Test-Suite provides the Executable Test Script (ETS) to test implementations against the following specification(s):
 
 - OGC WMS 1.3.0 Specification, [OGC 06-042](http://portal.opengeospatial.org/files/?artifact_id=14416)
+
 Detailed information about this test suite is available [here] (src/site/markdown/index.md).
 
 ## License
