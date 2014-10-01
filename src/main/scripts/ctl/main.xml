@@ -365,7 +365,7 @@
       <ctl:link title="Test requirements">docs/wms/1.3.0/#requirements</ctl:link>
       <ctl:code>
          <xsl:for-each select="wms:Capability/wms:Request/wms:GetMap">
-            <xsl:if test="not(wms:Format[. = 'image/gif' or . = 'image/png'])">
+            <xsl:if test="not(wms:Format[. = 'image/gif' or contains(.,'image/png')])">
                <ctl:fail/>
             </xsl:if>
          </xsl:for-each>
