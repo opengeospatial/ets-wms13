@@ -74,9 +74,8 @@ refers to. This test suite uses the on-line version.
 
 [Download the test dataset](data-wms-1.3.0.zip)
 
-The majority of the dataset is based on the [ Conformance Test Guidelines for
-OpenGIS Simple Features Specification for SQL, Revision 1.0
-](http://portal.opengeospatial.org/files/?artifact_id=7587&version=2). This
+The majority of the dataset is based on the [Conformance Test Guidelines for
+OpenGIS Simple Features Specification for SQL, Revision 1.0](http://portal.opengeospatial.org/files?artifact_id=7587&amp;version=2). This
 set of features makes up a map of a fictional location called Blue Lake. The
 features are as described in the Simple Features Specification for SQL
 document, except they have been converted to WGS84 coordinates and have been
@@ -158,5 +157,5 @@ test suite](wms-1_3_0-ats.html), which follows the ISO 19105 model.
 
 ## Release Notes
 
-Release notes are available from the [relnotes.txt](relnotes.txt).
+Release notes are available at the [relnotes.html](relnotes.html).
 

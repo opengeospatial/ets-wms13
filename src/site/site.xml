@@ -25,6 +25,11 @@
     <links>
       <item name="Issues" href="https://github.com/opengeospatial/ets-wms130/issues"/>
     </links>
+    <menu name="Documentation">
+      <item href="index.html" name="Overview" />
+      <item href="relnotes.html" name="Release Notes" />
+    </menu>
+    <menu ref="reports" />
 
   </body>
 </project>

@@ -16,9 +16,9 @@
       <revision>
         <name>${project.version}</name>
         <sources>
-          <source>wms/${spec-version}/ctl</source>
+          <source>wms${spec-version}/ctl</source>
         </sources>
-        <webdir>wms/${spec-version}/site</webdir>
+        <webdir>wms/1.3.0/site</webdir>
       </revision>
     </version>
   </standard>
