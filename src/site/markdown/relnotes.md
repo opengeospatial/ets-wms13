@@ -3,7 +3,8 @@ WMS 1.3.0 Test Suite Release Notes
 
 r10 (2014-10-01)
 ------------------
-* [#7](https://github.com/opengeospatial/ets-wms13/issues/7) image/png8 and image/png24 are not valid iana media types
+* [#1](https://github.com/opengeospatial/ets-wms13/issues/1) - update maven structure and clean project for release
+* [#7](https://github.com/opengeospatial/ets-wms13/issues/7) - image/png8 and image/png24 are not valid iana media types
 
 r9 (2014-06-20)
 ---------------
