@@ -4,7 +4,7 @@ The OGC Web Map Service (WMS)  1.3.0 Test-Suite provides the Executable Test Scr
 
 - OGC WMS 1.3.0 Specification, [OGC 06-042](http://portal.opengeospatial.org/files/?artifact_id=14416)
 
-Detailed information about this test suite is available [here] (src/main/site/markdown/index.md).
+Detailed information about this test suite is available [here] (http://opengeospatial.github.io/ets-wms13/).
 
 ## License
 
