@@ -526,11 +526,11 @@
                   <ctl:message>Error: The time dimension for the cite:Autos layer must be defined with units=&quot;ISO8601&quot;.</ctl:message>
                   <ctl:fail/>
                </xsl:if>
-               <xsl:if test="functions:boolean-as-integer($dim/@multipleValues) != 1 or functions:boolean($dim/@multipleValues) != true ">
+               <xsl:if test="functions:boolean-as-integer($dim/@multipleValues) != 1 or functions:boolean($dim/@multipleValues) != 'true' ">
                   <ctl:message>Error: The time dimension for the cite:Autos layer must be defined with multipleValues=&quot;true&quot;.</ctl:message>
                   <ctl:fail/>
                </xsl:if>
-               <xsl:if test="functions:boolean-as-integer($dim/@nearestValue) != 1 or functions:boolean($dim/@nearestValue) != true ">
+               <xsl:if test="functions:boolean-as-integer($dim/@nearestValue) != 1 or functions:boolean($dim/@nearestValue) != 'true' ">
                   <ctl:message>Error: The time dimension for the cite:Autos layer must be defined with nearestValue=&quot;true&quot;.</ctl:message>
                   <ctl:fail/>
                </xsl:if>
