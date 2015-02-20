@@ -1,6 +1,11 @@
 WMS 1.3.0 Test Suite Release Notes
 ==================================
 
+1.11 (2015-02-20)
+-----------------
+* Starting this revision, the revision number will follow the conventions described in the [wiki](https://github.com/opengeospatial/cite/wiki/OGC-Compliance-Testing-Tools)
+* [#9](https://github.com/opengeospatial/ets-wms13/issues/9) - Test main:time defect 
+
 r10 (2014-10-01)
 ------------------
 * [#1](https://github.com/opengeospatial/ets-wms13/issues/1) - update maven structure and clean project for release
