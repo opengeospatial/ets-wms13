@@ -33,12 +33,15 @@
       <ctl:starting-test>main:main</ctl:starting-test>
       <ctl:form xmlns="">
             <h3>Web Map Service 1.3.0</h3>
+
+            <h4>Test Overview and Reference Implementations</h4>
+            <p>Complete information about this test suite can be found <a href="." target="_blank">here</a>.</p>
+            <p>Reference implementations can be found <a href="http://cite.opengeospatial.org/reference">here</a>.</p>
+
             <br/>
             <h4>Capabilities Setup</h4>
             <p>
-               Enter a capabilities document URL below. Main may be the URL to
-               a static capabilities document, or a GetCapabilities request from a
-               WMS. A typical GetCapabilities request will take main form:
+               Enter a capabilities document URL below. The URL may point to a static capabilities document or a GetCapabilities request from a WMS. A typical GetCapabilities request will look as follows:
             </p>
             <pre>http://hostname/path?SERVICE=WMS&amp;REQUEST=GetCapabilities&amp;VERSION=1.3.0</pre>
             <br/>
@@ -55,7 +58,7 @@
             <br/>
             <h4>UpdateSequence Values</h4>
             <p>
-               The WMS spec allows servers to use an UpdateSequence value for
+               The WMS specification allows servers to use an UpdateSequence value for
                maintaining cache consistency as described in 
                <a href="http://cite.opengeospatial.org/OGCTestData/wms/1.3.0/spec/wms1_3.html#wmsops.getcapabilities.params.updatesequence">Section 7.2.3.5 of the specification</a>.
                If the server advertises an UpdateSequence value and the
