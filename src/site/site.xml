@@ -23,7 +23,7 @@
 
   <body>
     <links>
-      <item name="Issues" href="https://github.com/opengeospatial/ets-wms130/issues"/>
+      <item name="Issues" href="http://github.com/opengeospatial/ets-wms130/issues"/>
     </links>
     <menu name="Documentation">
       <item href="index.html" name="Overview" />
