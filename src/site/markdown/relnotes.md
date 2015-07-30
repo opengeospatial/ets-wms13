@@ -1,6 +1,10 @@
 WMS 1.3.0 Test Suite Release Notes
 ==================================
 
+1.12 (2015-07-30)
+------------------
+* Update POM file to build with Maven 2
+
 1.11 (2015-02-20)
 -----------------
 * Starting this revision, the revision number will follow the conventions described in the [wiki](https://github.com/opengeospatial/cite/wiki/OGC-Compliance-Testing-Tools)

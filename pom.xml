@@ -93,6 +93,7 @@
          </plugin>
       <plugin>     
         <artifactId>maven-site-plugin</artifactId>
+        <version>3.4</version>
         <executions>
           <execution>
             <id>site-package</id>
