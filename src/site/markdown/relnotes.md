@@ -1,6 +1,11 @@
 WMS 1.3.0 Test Suite Release Notes
 ==================================
 
+1.13 (2015-09-24)
+------------------
+* [#17](https://github.com/opengeospatial/ets-wms13/pull/17) - Fixed XPath to detect layer CRS (also consider root layer)
+* [#18](https://github.com/opengeospatial/ets-wms13/pull/18) - Fixed XPath to prevent selection of multiple layers
+
 1.12 (2015-07-30)
 ------------------
 * Update POM file to build with Maven 2
