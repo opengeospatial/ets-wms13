@@ -56,14 +56,14 @@
 
          <xsl:variable name="crs">
             <xsl:choose>
-               <xsl:when test="$root-layer//wms:Layer[wms:Name = $layer-name]/ancestor-or-self::wms:Layer[wms:CRS = $preferred-crs]">
+               <xsl:when test="$root-layer/descendant-or-self::wms:Layer[wms:Name = $layer-name]/ancestor-or-self::wms:Layer[wms:CRS = $preferred-crs]">
                   <xsl:value-of select="$preferred-crs"/>
                </xsl:when>
-               <xsl:when test="$root-layer//wms:Layer[wms:Name = $layer-name]/ancestor-or-self::wms:Layer/wms:BoundingBox">
-                  <xsl:value-of select="$root-layer//wms:Layer[wms:Name = $layer-name]/ancestor-or-self::wms:Layer[1]/wms:BoundingBox[1]/@CRS"/>
+               <xsl:when test="$root-layer/descendant-or-self::wms:Layer[wms:Name = $layer-name]/ancestor-or-self::wms:Layer/wms:BoundingBox">
+                  <xsl:value-of select="$root-layer/descendant-or-self::wms:Layer[wms:Name = $layer-name]/ancestor-or-self::wms:Layer[1]/wms:BoundingBox[1]/@CRS"/>
                </xsl:when>
-               <xsl:when test="$root-layer//wms:Layer[wms:Name = $layer-name]/ancestor-or-self::wms:Layer/wms:CRS">
-                  <xsl:value-of select="$root-layer//wms:Layer[wms:Name = $layer-name]/ancestor-or-self::wms:Layer[1]/wms:CRS[1]"/>
+               <xsl:when test="$root-layer/descendant-or-self::wms:Layer[wms:Name = $layer-name]/ancestor-or-self::wms:Layer/wms:CRS">
+                  <xsl:value-of select="$root-layer/descendant-or-self::wms:Layer[wms:Name = $layer-name]/ancestor-or-self::wms:Layer[1]/wms:CRS[1]"/>
                </xsl:when>
                <xsl:otherwise>NoCRSForLayer</xsl:otherwise>
             </xsl:choose>
