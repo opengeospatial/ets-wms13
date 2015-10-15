@@ -37,5 +37,5 @@ Visit the [CITE website](http://cite.opengeospatial.org/) to get more informatio
 ets-wms130
 ==========
 
-Repository for the Exectutable Test Suite for WMS 1.3.0
+Repository for the Conformance Test Suite for WMS 1.3.0
 https://github.com/opengeospatial/ets-wms13/

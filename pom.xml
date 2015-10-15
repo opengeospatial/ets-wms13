@@ -22,7 +22,9 @@
     <url>http://www.opengeospatial.org</url>
   </organization>
   <scm>
-    <url>https://github.com/opengeospatial/ets-wms13</url>    <connection>scm:git:https://github.com/opengeospatial/ets-wms13.git</connection>    <developerConnection>scm:git:git@github.com:opengeospatial/ets-wms13.git</developerConnection>
+    <url>https://github.com/opengeospatial/ets-wms13</url>    
+    <connection>scm:git:https://github.com/opengeospatial/ets-wms13.git</connection>    
+    <developerConnection>scm:git:git@github.com:opengeospatial/ets-wms13.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
   <issueManagement>
@@ -33,14 +35,13 @@
     <ets-code>wms</ets-code>
     <spec-version>1.3.0</spec-version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <teamengine.version>4.0.5</teamengine.version>
-  </properties>  
+  </properties>
   <reporting>
     <plugins>
       <plugin>
         <artifactId>maven-project-info-reports-plugin</artifactId>
         <version>2.7</version>
-         <reportSets>
+        <reportSets>
           <reportSet>
             <reports>
               <report>license</report>
@@ -52,11 +53,11 @@
       </plugin>  
     </plugins>
   </reporting> 
-  
- <build>
+
+  <build>
     <plugins>  
-    
-    <plugin>
+
+      <plugin>
         <artifactId>maven-jar-plugin</artifactId>
         <executions>
           <execution>
@@ -64,8 +65,8 @@
             <phase>never</phase>
           </execution>
         </executions>
-    </plugin>
-    <plugin>
+      </plugin>
+      <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
           <skipTests>true</skipTests>
@@ -78,7 +79,7 @@
             <descriptor>src/assembly/ctl.xml</descriptor>
           </descriptors>
         </configuration>
-         <executions>
+        <executions>
           <execution>
             <phase>package</phase>
             <goals>
@@ -88,9 +89,9 @@
         </executions>
       </plugin>
       <plugin>
-          <artifactId>maven-release-plugin</artifactId>
-           <version>2.5</version>
-         </plugin>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.5</version>
+      </plugin>
       <plugin>     
         <artifactId>maven-site-plugin</artifactId>
         <version>3.4</version>
