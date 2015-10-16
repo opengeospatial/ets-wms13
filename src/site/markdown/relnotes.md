@@ -1,6 +1,10 @@
 WMS 1.3.0 Test Suite Release Notes
 ==================================
 
+## 1.14 (2015-MM-DD)
+* Fix [#20](https://github.com/opengeospatial/ets-wms13/issues/20): Malformed 
+  test results if response to `invalid-crs` test is not XML.
+
 1.13 (2015-09-24)
 ------------------
 * [#17](https://github.com/opengeospatial/ets-wms13/pull/17) - Fixed XPath to detect layer CRS (also consider root layer)
