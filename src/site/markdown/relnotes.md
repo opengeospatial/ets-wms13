@@ -1,5 +1,8 @@
 WMS 1.3.0 Test Suite Release Notes
 ==================================
+1.14 (2015-10-15)
+------------------
+* Minor update: Remove obsolete Ant buildfile, update README.md and udpate pom.xml
 
 1.13 (2015-09-24)
 ------------------
