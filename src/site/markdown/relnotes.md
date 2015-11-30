@@ -1,12 +1,13 @@
 WMS 1.3.0 Test Suite Release Notes
 ==================================
+
+1.15 (2015-11-30)
+------------------
+* [#20](https://github.com/opengeospatial/ets-wms13/issues/20) - Malformed test results if response to `invalid-crs` test is not XML.
+
 1.14 (2015-10-15)
 ------------------
 * Minor update: Remove obsolete Ant buildfile, update README.md and udpate pom.xml
-
-## 1.14 (2015-MM-DD)
-* Fix [#20](https://github.com/opengeospatial/ets-wms13/issues/20): Malformed 
-  test results if response to `invalid-crs` test is not XML.
 
 1.13 (2015-09-24)
 ------------------
