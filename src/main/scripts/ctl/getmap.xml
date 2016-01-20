@@ -1649,7 +1649,16 @@
         </ctl:request>
       </xsl:variable>
       <xsl:if test="functions:mime-match($response/response/headers/header[functions:to-lowercase(@name) = 'content-type'], $format) = 'false'">
-        <ctl:fail/>
+        <xsl:choose>
+          <xsl:when test="functions:mime-match($response/response/headers/header[functions:to-lowercase(@name) = 'content-type'], 'image/png') = 'true'">
+            <xsl:if test="contains($format, 'image/png') = 'false'">
+              <ctl:fail/>
+            </xsl:if>
+          </xsl:when>
+          <xsl:otherwise>
+            <ctl:fail/>
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:if>
     </ctl:code>
   </ctl:test>
