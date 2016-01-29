@@ -1,6 +1,11 @@
 WMS 1.3.0 Test Suite Release Notes
 ==================================
 
+1.16 (2016-01-29)
+------------------
+* [#19](https://github.com/opengeospatial/ets-wms13/issues/19) - Invalid function calls in time:main
+* [#7](https://github.com/opengeospatial/ets-wms13/issues/7) - image/png8 and image/png24 are not valid iana media types
+
 1.15 (2015-11-30)
 ------------------
 * [#20](https://github.com/opengeospatial/ets-wms13/issues/20) - Malformed test results if response to `invalid-crs` test is not XML.
