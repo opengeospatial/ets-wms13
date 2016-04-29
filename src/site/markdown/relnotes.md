@@ -1,6 +1,10 @@
 WMS 1.3.0 Test Suite Release Notes
 ==================================
 
+1.17 (2016-04-29)
+------------------
+* [#26](https://github.com/opengeospatial/ets-wms13/issues/26) - values of "false"/"true" are not accepted for boolean attributes
+
 1.16 (2016-01-29)
 ------------------
 * [#19](https://github.com/opengeospatial/ets-wms13/issues/19) - Invalid function calls in time:main
