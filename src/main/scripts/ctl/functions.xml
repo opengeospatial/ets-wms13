@@ -223,8 +223,8 @@ MIME parameters don't have to match anymore - see issue 24, MIME type test too s
       <ctl:param name="boolean-or-int">'true', 'false', or integer value</ctl:param>
       <ctl:code>
          <xsl:choose>
-            <xsl:when test="$boolean-or-int = 1">1</xsl:when>
-            <xsl:when test="$boolean-or-int = 'true'">1</xsl:when>
+            <xsl:when test="string($boolean-or-int) = '1'">1</xsl:when>
+            <xsl:when test="string($boolean-or-int) = 'true'">1</xsl:when>
             <xsl:otherwise>0</xsl:otherwise>
          </xsl:choose>
       </ctl:code>
