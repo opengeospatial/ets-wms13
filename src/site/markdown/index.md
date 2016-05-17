@@ -33,6 +33,7 @@ implementations must meet the following requirements:
 
   * **Basic conformance option (Required for certification)**
     * Must support image/png or image/gif for GetMap requests.
+    * Must support GetMap requests without service parameter. 
     * Must contain the test dataset in layers that are subsetable and resizable and support CRS:84.
     * The CRS:84 support must be precise up to the ten-thousandth of a degree.
     * The default style for the cite:Lakes layer must fill in the polygon with non-white pixels.
