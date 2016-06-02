@@ -1,6 +1,10 @@
 WMS 1.3.0 Test Suite Release Notes
 ==================================
 
+1.18 (2016-06-02)
+------------------
+* [#11](https://github.com/opengeospatial/ets-wms13/issues/11) - r10 does not send mandatory SERVICE parameter
+
 1.17 (2016-04-29)
 ------------------
 * [#26](https://github.com/opengeospatial/ets-wms13/issues/26) - values of "false"/"true" are not accepted for boolean attributes
