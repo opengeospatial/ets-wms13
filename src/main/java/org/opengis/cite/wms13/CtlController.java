@@ -1,4 +1,4 @@
-package org.example.cite.wms13;
+package org.opengis.cite.wms13;
 
 import com.occamlab.te.SetupOptions;
 import com.occamlab.te.spi.ctl.CtlExecutor;
@@ -17,6 +17,8 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.Source;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
 
 /**
  * Main test run controller is responsible for executing the test suite.
@@ -40,8 +42,8 @@ public class CtlController implements TestSuiteController {
             setupOpts.addSource(ctlFile);
             this.executor = new CtlExecutor(setupOpts);
         } catch (IOException ex) {
-            Logger.getLogger(getClass().getName()).log(Level.SEVERE,
-                    "Failed to initialize CtlController. {0}", ex.getMessage());
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "Failed to initialize CtlController. {0}",
+                    ex.getMessage());
         }
     }
 
@@ -49,11 +51,13 @@ public class CtlController implements TestSuiteController {
      * A convenience method for running the test suite using a command-line
      * interface.
      *
-     * @param args Test run arguments (optional). The first argument must refer
-     * to a local XML properties file containing the expected set of test run
-     * arguments. If no argument is supplied, the file located at
-     * ${user.home}/test-run-props.xml will be used.
-     * @throws Exception If an error errors during the test run.
+     * @param args
+     *            Test run arguments (optional). The first argument must refer
+     *            to a local XML properties file containing the expected set of
+     *            test run arguments. If no argument is supplied, the file
+     *            located at ${user.home}/test-run-props.xml will be used.
+     * @throws Exception
+     *             If an error errors during the test run.
      */
     public static void main(String[] args) throws Exception {
         File propsFile;
@@ -61,9 +65,7 @@ public class CtlController implements TestSuiteController {
             propsFile = new File(System.getProperty("user.home"), "test-run-props.xml");
         } else {
             String xmlProps = args[0];
-            propsFile = (xmlProps.startsWith("file:"))
-                    ? new File(URI.create(xmlProps))
-                    : new File(xmlProps);
+            propsFile = (xmlProps.startsWith("file:")) ? new File(URI.create(xmlProps)) : new File(xmlProps);
         }
         if (!propsFile.isFile()) {
             throw new IllegalArgumentException("Test run arguments not found at " + propsFile);
@@ -73,8 +75,7 @@ public class CtlController implements TestSuiteController {
         Document testRunArgs = db.parse(propsFile);
         TestSuiteController controller = new CtlController();
         Source results = controller.doTestRun(testRunArgs);
-        Logger.getLogger(CtlController.class.getName()).log(Level.INFO,
-                "Test results: {0}", results.getSystemId());
+        Logger.getLogger(CtlController.class.getName()).log(Level.INFO, "Test results: {0}", results.getSystemId());
     }
 
     @Override
@@ -94,7 +95,40 @@ public class CtlController implements TestSuiteController {
 
     @Override
     public Source doTestRun(Document testRunArgs) throws Exception {
+        validateArguments(testRunArgs);
         return executor.execute(testRunArgs);
+    }
+
+    /**
+     * Validates the given test run arguments. An
+     * <code>IllegalArgumentException</code> is thrown if a required argument is
+     * missing or invalid. The recognized arguments are listed below.
+     * <ul>
+     * <li>{@value org.opengis.cite.wms13.WMS13#ARG_CAPABILITIES_URL}
+     * (required)</li>
+     * </ul>
+     * 
+     * @param testRunArgs
+     *            A Document containing a set of XML properties; each entry
+     *            (key-value pair) is a test run argument.
+     * @return A set of properties representing the test run arguments.
+     */
+    Properties validateArguments(Document testRunArgs) {
+        NodeList entries = testRunArgs.getDocumentElement().getElementsByTagName("entry");
+        if (entries.getLength() == 0) {
+            throw new IllegalArgumentException("No test run arguments.");
+        }
+        Properties args = new Properties();
+        for (int i = 0; i < entries.getLength(); i++) {
+            Element entry = (Element) entries.item(i);
+            args.setProperty(entry.getAttribute("key"), entry.getTextContent().trim());
+        }
+        String capabilitiesUrl = args.getProperty(WMS13.ARG_CAPABILITIES_URL);
+        if (null == capabilitiesUrl) {
+            throw new IllegalArgumentException(
+                    String.format("Missing required argument: %s", WMS13.ARG_CAPABILITIES_URL));
+        }
+        return args;
     }
 
     /**
@@ -103,7 +137,8 @@ public class CtlController implements TestSuiteController {
      * a file does not exist at this location the URI is assumed to be a
      * classpath reference.
      *
-     * @param uri An absolute or relative URI.
+     * @param uri
+     *            An absolute or relative URI.
      * @return A File object, or null if one could not be created.
      */
     final File findScriptFile(URI uri) {
@@ -118,12 +153,11 @@ public class CtlController implements TestSuiteController {
             try {
                 ctlFile = new File(resource.toURI());
             } catch (URISyntaxException ex) {
-                Logger.getLogger(getClass().getName()).log(Level.INFO,
-                        "Invalid URI: {0}", ex);
+                Logger.getLogger(getClass().getName()).log(Level.INFO, "Invalid URI: {0}", ex);
             }
         }
-        Logger.getLogger(getClass().getName()).log(Level.CONFIG,
-                "Created File object: {0}", ctlFile);
+        Logger.getLogger(getClass().getName()).log(Level.CONFIG, "Created File object: {0}", ctlFile);
         return ctlFile;
     }
+
 }
