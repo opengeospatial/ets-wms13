@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <title>WMS 1.3 Conformance Test Suite</title>
+    <meta charset="UTF-8" />
+    <style type="text/css">
+body {
+  color: black;
+  background: white;
+  font-family: Georgia, serif;
+}
+h1, h2, h3 {
+  font-family: Verdana, sans-serif;
+  color: #000099;
+  text-align: left;
+}
+h1 {
+  font-size: 1.4em;
+  margin-top: 2em;
+}
+h2 {
+  font-size: 1.2em;
+}
+h3 {
+  font-size: 1em;
+  margin-bottom: 0.5em;
+}
+table {
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  border-collapse: collapse;
+}
+td, th {
+  padding: 0.25em;
+  border: 1px solid black;
+}
+caption, figcaption {
+  font-weight: bold;
+  text-align: left;
+  margin: 0.25em;
+}
+th {
+  font-weight: bold;
+  font-family: Verdana, sans-serif;
+  text-align: left;
+  vertical-align: top;
+  background: #eeeeee;
+  color: #000099;
+}
+dt {
+  margin-top: 0.5em;
+  font-weight: bold;
+}
+    </style>
+  </head>
+  <body>
+    <h1>WMS 1.3 Conformance Test Suite</h1>
+    <p>Verifies that a Web Map Service (WMS) implementation comnforms to the relevant specifications:</p>
+    <ul>
+      <li>OpenGIS Web Map Server Implementation Specification, Version 1.3.0 [<a target="_blank" 
+      href="http://portal.opengeospatial.org/files/?artifact_id=14416">OGC 06-042</a>]</li>
+    </ul>
+
+    <p>The test run arguments are summarized in the following table. The <em>Obligation</em> 
+	descriptor can have the following values: M (mandatory), O (optional), or C 
+	(conditional).</p>
+
+    <table id="arguments" border="1" style="border-collapse: collapse;">
+      <caption>Test run arguments</caption>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Value domain</th>
+          <th>Obligation</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="input">
+          <td>capabilities-url</td>
+          <td>URI</td>
+          <td>M</td>
+          <td>An absolute URI that refers to an XML representation of the service capabilities document. 
+        This document does not need to be obtained from the service under test (SUT), but it must 
+        describe the implementation under test (IUT). Ampersand ('&amp;') characters appearing within 
+        a query parameter value must be percent-encoded as %26.</td>
+        </tr>
+        <tr id="input">
+          <td>updatesequence</td>
+          <td>Enumeration: "manual" | "auto" (default)</td>
+          <td>O</td>
+          <td>Indicates how to test handling of the updateSequence parameter.</td>
+        </tr>
+        <tr id="input">
+          <td>low-updatesequence</td>
+          <td>String</td>
+          <td>C (if updatesequence="manual") </td>
+          <td>A value that is lower than the current updateSequence value.</td>
+        </tr>
+        <tr id="input">
+          <td>high-updatesequence</td>
+          <td>String</td>
+          <td>C (if updatesequence="manual")</td>
+          <td>A value that is higher than the current updateSequence value.</td>
+        </tr>
+        <tr id="input">
+          <td>queryable</td>
+          <td>Boolean (default: false)</td>
+          <td>O</td>
+          <td>Verify that the IUT satisfies all requirements of the <strong>Queryable WMS</strong> 
+          conformance class.</td>
+        </tr>
+        <tr id="input">
+          <td>raster_elevation</td>
+          <td>Boolean (default: false)</td>
+          <td>O</td>
+          <td>Indicates whether to test the elevation dimension using the cite:Terrain raster dataset.</td>
+        </tr>
+        <tr id="input">
+          <td>vector_elevation</td>
+          <td>Boolean (default: false)</td>
+          <td>O</td>
+          <td>Indicates whether to test the elevation dimension using the cite:Lakes vector dataset.</td>
+        </tr>
+        <tr id="input">
+          <td>time</td>
+          <td>Boolean (default: false)</td>
+          <td>O</td>
+          <td>Indicates whether to test the time dimension using the cite:Autos dataset.</td>
+        </tr>
+        <tr id="input">
+          <td>recommended</td>
+          <td>Boolean (default: false)</td>
+          <td>O</td>
+          <td>Indicates whether to runs tests that apply to recommended constraints.</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </body>
+</html>
