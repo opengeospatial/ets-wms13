@@ -89,19 +89,19 @@ dt {
           <td>updatesequence</td>
           <td>Enumeration: "manual" | "auto" (default)</td>
           <td>O</td>
-          <td>Indicates how to test handling of the updateSequence parameter.</td>
+          <td>Indicates how to test versioning of the capabilities document.</td>
         </tr>
         <tr id="input">
           <td>low-updatesequence</td>
           <td>String</td>
-          <td>C (if updatesequence="manual") </td>
-          <td>A value that is lower than the current updateSequence value.</td>
+          <td>C (required if updatesequence="manual") </td>
+          <td>A version that is lower than the current updateSequence value.</td>
         </tr>
         <tr id="input">
           <td>high-updatesequence</td>
           <td>String</td>
-          <td>C (if updatesequence="manual")</td>
-          <td>A value that is higher than the current updateSequence value.</td>
+          <td>C (required if updatesequence="manual")</td>
+          <td>A version that is higher than the current updateSequence value.</td>
         </tr>
         <tr id="input">
           <td>queryable</td>
@@ -114,13 +114,13 @@ dt {
           <td>raster_elevation</td>
           <td>Boolean (default: false)</td>
           <td>O</td>
-          <td>Indicates whether to test the elevation dimension using the cite:Terrain raster dataset.</td>
+          <td>Run tests for the elevation dimension using the cite:Terrain raster dataset.</td>
         </tr>
         <tr id="input">
           <td>vector_elevation</td>
           <td>Boolean (default: false)</td>
           <td>O</td>
-          <td>Indicates whether to test the elevation dimension using the cite:Lakes vector dataset.</td>
+          <td>Run tests for the elevation dimension using the cite:Lakes vector dataset.</td>
         </tr>
         <tr id="input">
           <td>time</td>

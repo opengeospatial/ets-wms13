@@ -1,9 +1,5 @@
 package org.opengis.cite.wms13;
 
-import com.occamlab.te.SetupOptions;
-import com.occamlab.te.spi.ctl.CtlExecutor;
-import com.occamlab.te.spi.executors.TestRunExecutor;
-import com.occamlab.te.spi.jaxrs.TestSuiteController;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,12 +9,17 @@ import java.net.URL;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.Source;
+
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
+
+import com.occamlab.te.SetupOptions;
+import com.occamlab.te.spi.ctl.CtlExecutor;
+import com.occamlab.te.spi.executors.TestRunExecutor;
+import com.occamlab.te.spi.jaxrs.TestSuiteController;
 
 /**
  * Main test run controller is responsible for executing the test suite.
@@ -95,40 +96,9 @@ public class CtlController implements TestSuiteController {
 
     @Override
     public Source doTestRun(Document testRunArgs) throws Exception {
-        validateArguments(testRunArgs);
-        return executor.execute(testRunArgs);
-    }
-
-    /**
-     * Validates the given test run arguments. An
-     * <code>IllegalArgumentException</code> is thrown if a required argument is
-     * missing or invalid. The recognized arguments are listed below.
-     * <ul>
-     * <li>{@value org.opengis.cite.wms13.WMS13#ARG_CAPABILITIES_URL}
-     * (required)</li>
-     * </ul>
-     * 
-     * @param testRunArgs
-     *            A Document containing a set of XML properties; each entry
-     *            (key-value pair) is a test run argument.
-     * @return A set of properties representing the test run arguments.
-     */
-    Properties validateArguments(Document testRunArgs) {
-        NodeList entries = testRunArgs.getDocumentElement().getElementsByTagName("entry");
-        if (entries.getLength() == 0) {
-            throw new IllegalArgumentException("No test run arguments.");
-        }
-        Properties args = new Properties();
-        for (int i = 0; i < entries.getLength(); i++) {
-            Element entry = (Element) entries.item(i);
-            args.setProperty(entry.getAttribute("key"), entry.getTextContent().trim());
-        }
-        String capabilitiesUrl = args.getProperty(WMS13.ARG_CAPABILITIES_URL);
-        if (null == capabilitiesUrl) {
-            throw new IllegalArgumentException(
-                    String.format("Missing required argument: %s", WMS13.ARG_CAPABILITIES_URL));
-        }
-        return args;
+        Properties validArgs = TestRunArguments.validateArguments(testRunArgs);
+        // pass Properties directly instead?
+        return executor.execute(TestRunArguments.propertiesAsDocument(validArgs));
     }
 
     /**
