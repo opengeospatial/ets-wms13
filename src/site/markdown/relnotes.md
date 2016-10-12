@@ -1,6 +1,11 @@
 WMS 1.3.0 Test Suite Release Notes
 ==================================
 
+1.19 (2016-MM-DD)
+------------------
+* [#34](https://github.com/opengeospatial/ets-wms13/issues/34) : Add CtlController to enable execution via RESTful API
+
+
 1.18 (2016-06-02)
 ------------------
 * [#11](https://github.com/opengeospatial/ets-wms13/issues/11) - r10 does not send mandatory SERVICE parameter
