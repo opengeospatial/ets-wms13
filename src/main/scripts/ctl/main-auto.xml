@@ -47,7 +47,7 @@
       <ctl:param name="high-updatesequence"/>
       <ctl:param name="low-updatesequence"/>
       <ctl:param name="basic" />
-      <ctl:param name="queryable"/>
+      <ctl:param name="queryable" />
       <ctl:param name="raster_elevation"/>
       <ctl:param name="vector_elevation"/>
       <ctl:param name="time"/>

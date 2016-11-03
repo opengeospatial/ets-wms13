@@ -29,6 +29,7 @@ public class TestRunArguments {
      * (required)</li>
      * <li>{@value org.opengis.cite.wms13.WMS13#UPDATESEQ} (default:
      * "auto")</li>
+     * <li>{@value org.opengis.cite.wms13.WMS13#QUERYABLE} (default: false)</li>
      * </ul>
      * 
      * @param testRunArgs
@@ -45,7 +46,7 @@ public class TestRunArguments {
         Properties args = new Properties();
         for (int i = 0; i < entries.getLength(); i++) {
             Element entry = (Element) entries.item(i);
-            args.setProperty(entry.getAttribute("key"), entry.getTextContent().trim());
+            args.setProperty(entry.getAttribute("key"), entry.getTextContent().trim().toLowerCase());
         }
         String capabilitiesUrl = args.getProperty(WMS13.CAPABILITIES_URL);
         try {
