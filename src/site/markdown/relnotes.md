@@ -1,10 +1,11 @@
 WMS 1.3.0 Test Suite Release Notes
 ==================================
 
-1.19 (2016-MM-DD)
+1.19 (2016-11-15)
 ------------------
-* [#34](https://github.com/opengeospatial/ets-wms13/issues/34) : Add CtlController to enable execution via RESTful API
-
+* [#34](https://github.com/opengeospatial/ets-wms13/issues/34) - Add CtlController to enable execution via RESTful API
+* [#36](https://github.com/opengeospatial/ets-wms13/issues/36) - Test execution with Web GUI does not work with current status of master branch
+* Version 4.9+ of the TEAM Engine must be used, if test suite version 1.19+ is executed with TEAM Engine.
 
 1.18 (2016-06-02)
 ------------------
