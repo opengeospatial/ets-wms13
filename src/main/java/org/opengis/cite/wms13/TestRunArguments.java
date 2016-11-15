@@ -46,7 +46,7 @@ public class TestRunArguments {
         Properties args = new Properties();
         for (int i = 0; i < entries.getLength(); i++) {
             Element entry = (Element) entries.item(i);
-            args.setProperty(entry.getAttribute("key"), entry.getTextContent().trim().toLowerCase());
+            args.setProperty(entry.getAttribute("key"), entry.getTextContent().trim());
         }
         String capabilitiesUrl = args.getProperty(WMS13.CAPABILITIES_URL);
         try {
