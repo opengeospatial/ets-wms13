@@ -23,9 +23,18 @@
  xmlns:xlink="http://www.w3.org/1999/xlink"
  xmlns:xs="http://www.w3.org/2001/XMLSchema"
  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
->
+ xmlns:xi="http://www.w3.org/2001/XInclude">
 
-   <ctl:suite name="wms-1.3.0:compliance_suite">
+   <xi:include href="functions.xml"/>
+   <xi:include href="basic_elements.xml"/>
+   <xi:include href="interactive.xml"/>
+   <xi:include href="getcapabilities.xml"/>
+   <xi:include href="dimensions.xml"/>
+   <xi:include href="getmap.xml"/>
+   <xi:include href="getfeatureinfo.xml"/>
+   <xi:include href="recommendations.xml"/>
+
+   <ctl:suite name="wms-1.3.0:ets-wms13">
       <ctl:title>Web Map Service (WMS) 1.3.0</ctl:title>
       <ctl:description>Validates that a WMS 1.3.0 is compliant.</ctl:description>
       <ctl:link>docs/wms/1.3.0/</ctl:link>

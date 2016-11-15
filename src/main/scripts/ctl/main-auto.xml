@@ -33,15 +33,15 @@
    <xi:include href="getfeatureinfo.xml"/>
    <xi:include href="recommendations.xml"/>
 
-   <ctl:suite name="wms-1.3.0:compliance_suite">
+   <ctl:suite name="wms-1.3.0:ets-wms13-auto">
       <ctl:title>Web Map Service (WMS) 1.3.0</ctl:title>
       <ctl:description>Validates that a WMS 1.3.0 is compliant.</ctl:description>
       <ctl:link>docs/wms/1.3.0/</ctl:link>
       <ctl:link>data/data-wms-1.3.0.zip</ctl:link>
-      <ctl:starting-test>main:main</ctl:starting-test>
+      <ctl:starting-test>main:main-auto</ctl:starting-test>
    </ctl:suite>
 
-   <ctl:test name="main:main">
+   <ctl:test name="main:main-auto">
       <ctl:param name="capabilities-url"/>
       <ctl:param name="updatesequence"/>
       <ctl:param name="high-updatesequence"/>
