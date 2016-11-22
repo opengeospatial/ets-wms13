@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ctl:package
+ xmlns:functions="https://cite.opengeospatial.org/wms-1.3.0/src/ctl/functions.xml"
+ xmlns:queryable="https://cite.opengeospatial.org/wms-1.3.0/src/ctl/queryable.xml"
+ xmlns:ccf="http://www.opengis.net/cite/complex"
+ xmlns:cdf="http://www.opengis.net/cite/data"
+ xmlns:cgf="http://www.opengis.net/cite/geometry"
+ xmlns:citef="http://www.opengis.net/cite/functions"
+ xmlns:ctl="http://www.occamlab.com/ctl"
+ xmlns:gml="http://www.opengis.net/gml"
+ xmlns:ogc="http://www.opengis.net/ogc"
+ xmlns:parsers="http://www.occamlab.com/te/parsers"
+ xmlns:saxon="http://saxon.sf.net/"
+ xmlns:wms="http://www.opengis.net/wms"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xs="http://www.w3.org/2001/XMLSchema"
+ xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+>
+
+   <ctl:test name="queryable:main">
+      <ctl:param name="queryable"/>
+      <ctl:context>WMS_Capabilities element</ctl:context>
+      <ctl:assertion>Queryable request behaves properly.</ctl:assertion>
+      <ctl:code>
+         <ctl:call-test name="queryable:options-requirements">
+            <ctl:with-param name="queryable" select="$queryable"/>
+         </ctl:call-test>
+         <ctl:call-test name="queryable:getfeatureinfo">
+            <ctl:with-param name="queryable" select="$queryable"/>
+         </ctl:call-test>
+      </ctl:code>
+   </ctl:test>
+
+   <ctl:test name="queryable:options-requirements">
+      <ctl:param name="queryable"/>
+      <ctl:context>Capabilities XML</ctl:context>
+      <ctl:assertion>The requirements for testing the selected options are met.</ctl:assertion>
+      <ctl:code>
+         <xsl:if test="$queryable='queryable'">
+            <ctl:call-test name="queryable:getfeatureinfo-supported"/>
+            <ctl:call-test name="queryable:std-data-queryable"/>
+         </xsl:if>
+      </ctl:code>
+   </ctl:test>
+
+   <ctl:test name="queryable:getfeatureinfo">
+      <ctl:param name="queryable"/>
+      <ctl:context>WMS_Capabilities element</ctl:context>
+      <ctl:assertion>The GetFeatureInfo request behaves properly.</ctl:assertion>
+      <ctl:code>
+         <xsl:choose>
+            <xsl:when test="not(wms:Capability/wms:Request/wms:GetFeatureInfo/wms:DCPType/wms:HTTP/wms:Get)">
+               <ctl:message>The GetFeatureInfo request is not supported.</ctl:message>
+               <xsl:if test="$queryable='queryable'">
+                  <ctl:fail/>
+               </xsl:if>
+            </xsl:when>
+            <xsl:otherwise>
+               <xsl:choose>
+                  <xsl:when test="not(wms:Capability//wms:Layer[@queryable and functions:boolean-as-integer(@queryable) = 1]/wms:Name)">
+                     <ctl:message>No queryable layers in capabilities XML.</ctl:message>
+                     <xsl:if test="$queryable='queryable'">
+                        <ctl:fail/>
+                     </xsl:if>
+                  </xsl:when>
+                  <xsl:otherwise>
+                     <ctl:call-test name="queryable:feature_count">
+                        <ctl:with-param name="queryable" select="$queryable"/>
+                     </ctl:call-test>
+                  </xsl:otherwise>
+               </xsl:choose>
+            </xsl:otherwise>
+         </xsl:choose>
+      </ctl:code>
+   </ctl:test>
+
+   <ctl:test name="queryable:feature_count">
+      <ctl:param name="queryable"/>
+      <ctl:context>WMS_Capabilities element</ctl:context>
+      <ctl:assertion>The FEATURE_COUNT parameter behaves properly.</ctl:assertion>
+      <ctl:code>
+         <xsl:if test="$queryable='queryable'">
+            <ctl:call-test name="queryable:feature_count-default"/>
+            <ctl:call-test name="queryable:feature_count-1"/>
+         </xsl:if>
+      </ctl:code>
+   </ctl:test>
+
+   <ctl:test name="queryable:feature_count-default">
+      <ctl:context>WMS_Capabilities element</ctl:context>
+      <ctl:assertion>When the FEATURE_COUNT parameter is not specified, then less data is returned than when FEATURE_COUNT is 2.</ctl:assertion>
+      <ctl:comment/>
+      <ctl:link title="WMS 1.3.0 section 7.4.3.6">http://cite.opengeospatial.org/OGCTestData/wms/1.3.0/spec/wms1_3.html#wmsops.getfeatureinfo.params.feature_count</ctl:link>
+      <ctl:code>
+         <xsl:variable name="image-format" select="wms:Capability/wms:Request/wms:GetMap/wms:Format[1]"/>
+         <xsl:variable name="info-format" select="wms:Capability/wms:Request/wms:GetFeatureInfo/wms:Format[1]"/>
+         <xsl:variable name="response-1">
+            <ctl:request>
+               <ctl:url>
+                  <xsl:value-of select="wms:Capability/wms:Request/wms:GetFeatureInfo/wms:DCPType/wms:HTTP/wms:Get/wms:OnlineResource/@xlink:href"/>
+               </ctl:url>
+               <ctl:method>get</ctl:method>
+               <ctl:param name="QuErY_LaYeRs">
+                  <xsl:value-of select="string(wms:Capability//wms:Layer[wms:Title = 'cite:BasicPolygons']/wms:Name)"/>
+               </ctl:param>
+               <ctl:param name="I">50</ctl:param>
+               <ctl:param name="LaYeRs">
+                  <xsl:value-of select="string(wms:Capability//wms:Layer[wms:Title = 'cite:BasicPolygons']/wms:Name)"/>
+               </ctl:param>
+               <ctl:param name="StYlEs"/>
+               <ctl:param name="WiDtH">100</ctl:param>
+               <ctl:param name="CrS">CRS:84</ctl:param>
+               <ctl:param name="ReQuEsT">GetFeatureInfo</ctl:param>
+               <ctl:param name="InFo_fOrMaT">
+                  <xsl:value-of select="functions:encode($info-format)"/>
+               </ctl:param>
+               <ctl:param name="BbOx">-2,2,2,6</ctl:param>
+               <ctl:param name="HeIgHt">100</ctl:param>
+               <ctl:param name="J">50</ctl:param>
+               <ctl:param name="VeRsIoN">
+                  <xsl:value-of select="functions:version()"/>
+               </ctl:param>
+               <ctl:param name="FoRmAt">
+                  <xsl:value-of select="functions:encode($image-format)"/>
+               </ctl:param>
+               <parsers:CDataParser/>
+            </ctl:request>
+         </xsl:variable>
+         <xsl:variable name="response-2">
+            <ctl:request>
+               <ctl:url>
+                  <xsl:value-of select="wms:Capability/wms:Request/wms:GetFeatureInfo/wms:DCPType/wms:HTTP/wms:Get/wms:OnlineResource/@xlink:href"/>
+               </ctl:url>
+               <ctl:method>get</ctl:method>
+               <ctl:param name="FoRmAt">
+                  <xsl:value-of select="functions:encode($image-format)"/>
+               </ctl:param>
+               <ctl:param name="BbOx">-2,2,2,6</ctl:param>
+               <ctl:param name="FeAtUrE_CoUnT">2</ctl:param>
+               <ctl:param name="StYlEs"/>
+               <ctl:param name="J">50</ctl:param>
+               <ctl:param name="LaYeRs">
+                  <xsl:value-of select="string(wms:Capability//wms:Layer[wms:Title = 'cite:BasicPolygons']/wms:Name)"/>
+               </ctl:param>
+               <ctl:param name="QuErY_LaYeRs">
+                  <xsl:value-of select="string(wms:Capability//wms:Layer[wms:Title = 'cite:BasicPolygons']/wms:Name)"/>
+               </ctl:param>
+               <ctl:param name="CrS">CRS:84</ctl:param>
+               <ctl:param name="HeIgHt">100</ctl:param>
+               <ctl:param name="WiDtH">100</ctl:param>
+               <ctl:param name="InFo_fOrMaT">
+                  <xsl:value-of select="functions:encode($info-format)"/>
+               </ctl:param>
+               <ctl:param name="VeRsIoN">
+                  <xsl:value-of select="functions:version()"/>
+               </ctl:param>
+               <ctl:param name="I">50</ctl:param>
+               <ctl:param name="ReQuEsT">GetFeatureInfo</ctl:param>
+               <parsers:CDataParser/>
+            </ctl:request>
+         </xsl:variable>
+         <xsl:if test="string-length($response-1) &gt; string-length($response-2)">
+            <ctl:fail/>
+         </xsl:if>
+      </ctl:code>
+   </ctl:test>
+
+   <ctl:test name="queryable:feature_count-1">
+      <ctl:context>WMS_Capabilities element</ctl:context>
+      <ctl:assertion>When the FEATURE_COUNT parameter is 1, then less data is returned than when FEATURE_COUNT is 2.</ctl:assertion>
+      <ctl:comment/>
+      <ctl:link title="WMS 1.3.0 section 7.4.3.6">http://cite.opengeospatial.org/OGCTestData/wms/1.3.0/spec/wms1_3.html#wmsops.getfeatureinfo.params.feature_count</ctl:link>
+      <ctl:code>
+         <xsl:variable name="image-format" select="wms:Capability/wms:Request/wms:GetMap/wms:Format[1]"/>
+         <xsl:variable name="info-format" select="wms:Capability/wms:Request/wms:GetFeatureInfo/wms:Format[1]"/>
+         <xsl:variable name="response-1">
+            <ctl:request>
+               <ctl:url>
+                  <xsl:value-of select="wms:Capability/wms:Request/wms:GetFeatureInfo/wms:DCPType/wms:HTTP/wms:Get/wms:OnlineResource/@xlink:href"/>
+               </ctl:url>
+               <ctl:method>get</ctl:method>
+               <ctl:param name="QuErY_LaYeRs">
+                  <xsl:value-of select="string(wms:Capability//wms:Layer[wms:Title = 'cite:BasicPolygons']/wms:Name)"/>
+               </ctl:param>
+               <ctl:param name="I">50</ctl:param>
+               <ctl:param name="LaYeRs">
+                  <xsl:value-of select="string(wms:Capability//wms:Layer[wms:Title = 'cite:BasicPolygons']/wms:Name)"/>
+               </ctl:param>
+               <ctl:param name="StYlEs"/>
+               <ctl:param name="WiDtH">100</ctl:param>
+               <ctl:param name="CrS">CRS:84</ctl:param>
+               <ctl:param name="ReQuEsT">GetFeatureInfo</ctl:param>
+               <ctl:param name="InFo_fOrMaT">
+                  <xsl:value-of select="functions:encode($info-format)"/>
+               </ctl:param>
+               <ctl:param name="BbOx">-2,2,2,6</ctl:param>
+               <ctl:param name="HeIgHt">100</ctl:param>
+               <ctl:param name="J">50</ctl:param>
+               <ctl:param name="VeRsIoN">
+                  <xsl:value-of select="functions:version()"/>
+               </ctl:param>
+               <ctl:param name="FoRmAt">
+                  <xsl:value-of select="functions:encode($image-format)"/>
+               </ctl:param>
+               <ctl:param name="FeAtUrE_CoUnT">1</ctl:param>
+               <parsers:CDataParser/>
+            </ctl:request>
+         </xsl:variable>
+         <xsl:variable name="response-2">
+            <ctl:request>
+               <ctl:url>
+                  <xsl:value-of select="wms:Capability/wms:Request/wms:GetFeatureInfo/wms:DCPType/wms:HTTP/wms:Get/wms:OnlineResource/@xlink:href"/>
+               </ctl:url>
+               <ctl:method>get</ctl:method>
+               <ctl:param name="FoRmAt">
+                  <xsl:value-of select="functions:encode($image-format)"/>
+               </ctl:param>
+               <ctl:param name="BbOx">-2,2,2,6</ctl:param>
+               <ctl:param name="FeAtUrE_CoUnT">2</ctl:param>
+               <ctl:param name="StYlEs"/>
+               <ctl:param name="J">50</ctl:param>
+               <ctl:param name="LaYeRs">
+                  <xsl:value-of select="string(wms:Capability//wms:Layer[wms:Title = 'cite:BasicPolygons']/wms:Name)"/>
+               </ctl:param>
+               <ctl:param name="QuErY_LaYeRs">
+                  <xsl:value-of select="string(wms:Capability//wms:Layer[wms:Title = 'cite:BasicPolygons']/wms:Name)"/>
+               </ctl:param>
+               <ctl:param name="CrS">CRS:84</ctl:param>
+               <ctl:param name="HeIgHt">100</ctl:param>
+               <ctl:param name="WiDtH">100</ctl:param>
+               <ctl:param name="InFo_fOrMaT">
+                  <xsl:value-of select="functions:encode($info-format)"/>
+               </ctl:param>
+               <ctl:param name="VeRsIoN">
+                  <xsl:value-of select="functions:version()"/>
+               </ctl:param>
+               <ctl:param name="I">50</ctl:param>
+               <ctl:param name="ReQuEsT">GetFeatureInfo</ctl:param>
+               <parsers:CDataParser/>
+            </ctl:request>
+         </xsl:variable>
+         <xsl:if test="string-length($response-1) &gt; string-length($response-2)">
+            <ctl:fail/>
+         </xsl:if>
+      </ctl:code>
+   </ctl:test>
+
+   <ctl:test name="queryable:getfeatureinfo-supported">
+      <ctl:context>Capabilities XML</ctl:context>
+      <ctl:assertion>GetFeatureInfo requests are supported.</ctl:assertion>
+      <ctl:link title="Test requirements">docs/wms/1.3.0/#requirements</ctl:link>
+      <ctl:code>
+         <xsl:if test="not(wms:Capability/wms:Request/wms:GetFeatureInfo)">
+            <ctl:fail/>
+         </xsl:if>
+      </ctl:code>
+   </ctl:test>
+
+   <ctl:test name="queryable:std-data-queryable">
+      <ctl:context>Capabilities XML</ctl:context>
+      <ctl:assertion>The CITE standard dataset layers containing polygons are queryable.</ctl:assertion>
+      <ctl:link title="Test requirements">docs/wms/1.3.0/#requirements</ctl:link>
+      <ctl:code>
+         <xsl:variable name="root-layer" select="wms:Capability/wms:Layer"/>
+         <xsl:variable name="titles">
+            <title>cite:BasicPolygons</title>
+            <title>cite:Forests</title>
+            <title>cite:Lakes</title>
+            <title>cite:NamedPlaces</title>
+         </xsl:variable>
+         <xsl:for-each select="$titles/title">
+            <xsl:variable name="title" select="."/>
+            <xsl:variable name="layer" select="$root-layer/descendant-or-self::wms:Layer[wms:Title = $title]"/>
+            <xsl:choose>
+               <xsl:when test="not($layer/wms:Title)">
+                  <ctl:message>Error: No layer titled <xsl:value-of select="$title"/> found.</ctl:message>
+                  <ctl:fail/>
+               </xsl:when>
+               <xsl:otherwise>
+                  <xsl:if test="functions:boolean-as-integer($layer/@queryable) = 0">
+                     <ctl:message>Error: Layer titled <xsl:value-of select="$title"/> must be queryable.</ctl:message>
+                     <ctl:fail/>
+                  </xsl:if>
+               </xsl:otherwise>
+            </xsl:choose>
+         </xsl:for-each>
+      </ctl:code>
+   </ctl:test>
+
+</ctl:package>
