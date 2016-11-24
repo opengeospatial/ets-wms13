@@ -31,6 +31,18 @@
     <system>GitHub Issue Tracker</system>
     <url>https://github.com/opengeospatial/ets-wms13/issues</url>
   </issueManagement>
+  <developers>
+    <developer>
+      <name>D. Stenger</name>
+      <url>https://github.com/dstenger</url>
+      <timezone>Europe/Berlin</timezone>
+    </developer>
+    <developer>
+      <name>R. Martell</name>
+      <url>https://github.com/rjmartell</url>
+      <timezone>Canada/Pacific</timezone>
+    </developer>
+  </developers>
 
   <properties>
     <ets-code>wms</ets-code>
