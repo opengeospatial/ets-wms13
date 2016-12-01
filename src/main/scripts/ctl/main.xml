@@ -278,21 +278,23 @@
 
             <ctl:call-test name="dims:main"/>
 
-            <ctl:call-test name="queryable:main">
-               <ctl:with-param name="queryable" select="$queryable"/>
-            </ctl:call-test>
+            <xsl:if test="$queryable='queryable'">
+               <ctl:call-test name="queryable:main">
+                  <ctl:with-param name="queryable" select="$queryable"/>
+               </ctl:call-test>
+            </xsl:if>
 
-            <ctl:call-test name="raster_elevation:main">
-               <ctl:with-param name="raster_elevation" select="$raster_elevation"/>
-            </ctl:call-test>
+            <xsl:if test="$raster_elevation='raster_elevation'">
+               <ctl:call-test name="raster_elevation:main"/>
+            </xsl:if>
 
-            <ctl:call-test name="vector_elevation:main">
-               <ctl:with-param name="vector_elevation" select="$vector_elevation"/>
-            </ctl:call-test>
+            <xsl:if test="$vector_elevation='vector_elevation'">
+               <ctl:call-test name="vector_elevation:main"/>
+            </xsl:if>
 
-            <ctl:call-test name="time:main">
-               <ctl:with-param name="time" select="$time"/>
-            </ctl:call-test>
+            <xsl:if test="$time='time'">
+               <ctl:call-test name="time:main"/>
+            </xsl:if>
          </ctl:for-each>
       </ctl:code>
    </ctl:test>

@@ -18,7 +18,6 @@
 >
 
    <ctl:test name="raster_elevation:main">
-      <ctl:param name="raster_elevation"/>
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>Raster elevation request behaves properly.</ctl:assertion>
       <ctl:code>
@@ -32,24 +31,18 @@
    </ctl:test>
 
    <ctl:test name="raster_elevation:options-requirements">
-      <ctl:param name="raster_elevation"/>
       <ctl:context>Capabilities XML</ctl:context>
       <ctl:assertion>The requirements for testing the selected options are met.</ctl:assertion>
       <ctl:code>
-         <xsl:if test="$raster_elevation='raster_elevation'">
-            <ctl:call-test name="raster_elevation:raster_elevation"/>
-         </xsl:if>
+         <ctl:call-test name="raster_elevation:raster_elevation"/>
       </ctl:code>
    </ctl:test>
 
    <ctl:test name="raster_elevation:dims">
-      <ctl:param name="raster_elevation"/>
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>Support for dimensional data is correct.</ctl:assertion>
       <ctl:code>
-         <xsl:if test="$raster_elevation='raster_elevation'">
-            <ctl:call-test name="raster_elevation:terrain"/>
-         </xsl:if>
+         <ctl:call-test name="raster_elevation:terrain"/>
       </ctl:code>
    </ctl:test>
 

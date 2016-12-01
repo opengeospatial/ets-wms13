@@ -18,38 +18,27 @@
 >
 
    <ctl:test name="vector_elevation:main">
-      <ctl:param name="vector_elevation"/>
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>Vector elevation request behaves properly.</ctl:assertion>
       <ctl:code>
-         <ctl:call-test name="vector_elevation:options-requirements">
-            <ctl:with-param name="vector_elevation" select="$vector_elevation"/>
-         </ctl:call-test>
-         <ctl:call-test name="vector_elevation:dims">
-            <ctl:with-param name="vector_elevation" select="$vector_elevation"/>
-         </ctl:call-test>
+         <ctl:call-test name="vector_elevation:options-requirements"/>
+         <ctl:call-test name="vector_elevation:dims"/>
       </ctl:code>
    </ctl:test>
 
    <ctl:test name="vector_elevation:options-requirements">
-      <ctl:param name="vector_elevation"/>
       <ctl:context>Capabilities XML</ctl:context>
       <ctl:assertion>The requirements for testing the selected options are met.</ctl:assertion>
       <ctl:code>
-         <xsl:if test="$vector_elevation='vector_elevation'">
-            <ctl:call-test name="vector_elevation:vector_elevation"/>
-         </xsl:if>
+         <ctl:call-test name="vector_elevation:vector_elevation"/>
       </ctl:code>
    </ctl:test>
 
    <ctl:test name="vector_elevation:dims">
-      <ctl:param name="vector_elevation"/>
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>Support for dimensional data is correct.</ctl:assertion>
       <ctl:code>
-         <xsl:if test="$vector_elevation='vector_elevation'">
-            <ctl:call-test name="vector_elevation:geometry"/>
-         </xsl:if>
+         <ctl:call-test name="vector_elevation:geometry"/>
       </ctl:code>
    </ctl:test>
 

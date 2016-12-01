@@ -120,7 +120,6 @@
    </ctl:parser>
 
    <ctl:test name="time:main">
-      <ctl:param name="time"/>
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>Time request behaves properly.</ctl:assertion>
       <ctl:code>
@@ -134,24 +133,18 @@
    </ctl:test>
 
    <ctl:test name="time:options-requirements">
-      <ctl:param name="time"/>
       <ctl:context>Capabilities XML</ctl:context>
       <ctl:assertion>The requirements for testing the selected options are met.</ctl:assertion>
       <ctl:code>
-         <xsl:if test="$time='time'">
-            <ctl:call-test name="time:time"/>
-         </xsl:if>
+         <ctl:call-test name="time:time"/>
       </ctl:code>
    </ctl:test>
 
    <ctl:test name="time:dims">
-      <ctl:param name="time"/>
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>Support for dimensional data is correct.</ctl:assertion>
       <ctl:code>
-         <xsl:if test="$time='time'">
-            <ctl:call-test name="time:time-dims"/>
-         </xsl:if>
+         <ctl:call-test name="time:time-dims"/>
       </ctl:code>
    </ctl:test>
 

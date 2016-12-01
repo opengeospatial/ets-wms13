@@ -22,9 +22,7 @@
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>Queryable request behaves properly.</ctl:assertion>
       <ctl:code>
-         <ctl:call-test name="queryable:options-requirements">
-            <ctl:with-param name="queryable" select="$queryable"/>
-         </ctl:call-test>
+         <ctl:call-test name="queryable:options-requirements"/>
          <ctl:call-test name="queryable:getfeatureinfo">
             <ctl:with-param name="queryable" select="$queryable"/>
          </ctl:call-test>
@@ -36,10 +34,8 @@
       <ctl:context>Capabilities XML</ctl:context>
       <ctl:assertion>The requirements for testing the selected options are met.</ctl:assertion>
       <ctl:code>
-         <xsl:if test="$queryable='queryable'">
-            <ctl:call-test name="queryable:getfeatureinfo-supported"/>
-            <ctl:call-test name="queryable:std-data-queryable"/>
-         </xsl:if>
+         <ctl:call-test name="queryable:getfeatureinfo-supported"/>
+         <ctl:call-test name="queryable:std-data-queryable"/>
       </ctl:code>
    </ctl:test>
 
