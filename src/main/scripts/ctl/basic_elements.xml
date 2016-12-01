@@ -114,7 +114,7 @@
                      </ctl:url>
                      <ctl:method>get</ctl:method>
                      <ctl:param name="FoRmAt">
-                        <xsl:value-of select="$image-format"/>
+                        <xsl:value-of select="functions:encode($image-format)"/>
                         <!--<xsl:value-of select="functions:encode($image-format)"/>-->
                      </ctl:param>
                      <ctl:param name="ReQuEsT">GetMap</ctl:param>
@@ -194,7 +194,7 @@
                            <ctl:param name="ReQuEsT">GetFeatureInfo</ctl:param>
                            <ctl:param name="StYlEs"/>
                            <ctl:param name="FoRmAt">
-                             <xsl:value-of select="$image-format"/>
+                             <xsl:value-of select="functions:encode($image-format)"/>
                              <!--<xsl:value-of select="functions:encode($image-format)"/>-->
                            </ctl:param>
                            <ctl:param name="J">64</ctl:param>
