@@ -263,6 +263,7 @@
    <ctl:test name="main:universal">
       <ctl:param name="high-updatesequence"/>
       <ctl:param name="low-updatesequence"/>
+      <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>Universal (dataset independent) request behaves properly.</ctl:assertion>
       <ctl:code>
          <xsl:variable name="exhaustive">
