@@ -18,12 +18,15 @@
 >
 
    <ctl:test name="basic:main">
+      <ctl:param name="is-interactive-enabled"/>
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>Basic request behaves properly.</ctl:assertion>
       <ctl:code>
          <ctl:call-test name="basic:options-requirements"/>
          <ctl:call-test name="basic:getmap"/>
-         <ctl:call-test name="basic:interactive"/>
+         <xsl:if test="$is-interactive-enabled='yes'">
+            <ctl:call-test name="basic:interactive"/>
+         </xsl:if>
       </ctl:code>
    </ctl:test>
 

@@ -233,7 +233,9 @@
             </xsl:if>
 
             <xsl:if test="$basic='basic'">
-               <ctl:call-test name="basic:main"/>
+               <ctl:call-test name="basic:main">
+                  <ctl:with-param name="is-interactive-enabled" select="'yes'"/>
+               </ctl:call-test>
             </xsl:if>
 
             <xsl:if test="$queryable='queryable'">
