@@ -21,12 +21,8 @@
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>Raster elevation request behaves properly.</ctl:assertion>
       <ctl:code>
-         <ctl:call-test name="raster_elevation:options-requirements">
-            <ctl:with-param name="raster_elevation" select="$raster_elevation"/>
-         </ctl:call-test>
-         <ctl:call-test name="raster_elevation:dims">
-            <ctl:with-param name="raster_elevation" select="$raster_elevation"/>
-         </ctl:call-test>
+         <ctl:call-test name="raster_elevation:options-requirements"/>
+         <ctl:call-test name="raster_elevation:dims"/>
       </ctl:code>
    </ctl:test>
 

@@ -123,12 +123,8 @@
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>Time request behaves properly.</ctl:assertion>
       <ctl:code>
-         <ctl:call-test name="time:options-requirements">
-            <ctl:with-param name="time" select="$time"/>
-         </ctl:call-test>
-         <ctl:call-test name="time:dims">
-            <ctl:with-param name="time" select="$time"/>
-         </ctl:call-test>
+         <ctl:call-test name="time:options-requirements"/>
+         <ctl:call-test name="time:dims"/>
       </ctl:code>
    </ctl:test>
 
