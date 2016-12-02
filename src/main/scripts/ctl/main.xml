@@ -220,53 +220,10 @@
 
          <ctl:for-each select="$capabilities/wms:WMS_Capabilities">
 
-            <xsl:variable name="exhaustive">
-               <xsl:if test="function-available('te:isWeb')" xmlns:te="http://www.occamlab.com/te">
-                  <xsl:if test="string(te:isWeb()) = 'false'">
-                     <xsl:variable name="form-results">
-                        <xsl:variable name="combinations">
-                           <xsl:for-each select="//wms:Layer[wms:Name]">
-                              <xsl:for-each select="ancestor-or-self::wms:Layer/wms:CRS[not(. = ../ancestor::wms:Layer/wms:CRS)]">
-                                 <x/>
-                              </xsl:for-each>
-                           </xsl:for-each>
-                        </xsl:variable>
-                        <ctl:form xmlns="">
-                           <p>
-                              Do you want to exhaustively test each Layer/CRS combination?<br/>
-                              There are <xsl:value-of select="count($combinations/x)"/> combinations to test.
-                           </p>
-                           <p>
-                              <input type="submit" name="answer" value="yes"/>
-                              <input type="submit" name="answer" value="no"/>
-                           </p>
-                        </ctl:form>
-                     </xsl:variable>
-                     <xsl:if test="$form-results/values/value[@key='answer']='yes'">exhaustive</xsl:if>
-                  </xsl:if>
-               </xsl:if>
-            </xsl:variable>
-
-            <ctl:call-test name="interactive:main"/>
-
-            <ctl:call-test name="basic_elements:main"/>
-
-            <ctl:call-test name="getcapabilities:main">
+            <ctl:call-test name="main:universal">
                <ctl:with-param name="high-updatesequence" select="$high-updatesequence"/>
                <ctl:with-param name="low-updatesequence" select="$low-updatesequence"/>
             </ctl:call-test>
-
-            <ctl:call-test name="getmap:main">
-               <ctl:with-param name="exhaustive" select="$exhaustive"/>
-            </ctl:call-test>
-
-            <ctl:call-test name="getfeatureinfo:main"/>
-
-            <xsl:if test="$recommended = 'recommended'">
-               <ctl:call-test name="recommendations:main"/>
-            </xsl:if>
-
-            <ctl:call-test name="dims:main"/>
 
             <xsl:if test="$basic='basic' or $queryable='queryable'">
                <ctl:call-test name="main:std-data-present">
@@ -294,7 +251,63 @@
             <xsl:if test="$time='time'">
                <ctl:call-test name="time:main"/>
             </xsl:if>
+
+            <xsl:if test="$recommended = 'recommended'">
+               <ctl:call-test name="recommendations:main"/>
+            </xsl:if>
+
          </ctl:for-each>
+      </ctl:code>
+   </ctl:test>
+
+   <ctl:test name="main:universal">
+      <ctl:param name="high-updatesequence"/>
+      <ctl:param name="low-updatesequence"/>
+      <ctl:assertion>Universal (dataset independent) request behaves properly.</ctl:assertion>
+      <ctl:code>
+         <xsl:variable name="exhaustive">
+            <xsl:if test="function-available('te:isWeb')" xmlns:te="http://www.occamlab.com/te">
+               <xsl:if test="string(te:isWeb()) = 'false'">
+                  <xsl:variable name="form-results">
+                     <xsl:variable name="combinations">
+                        <xsl:for-each select="//wms:Layer[wms:Name]">
+                           <xsl:for-each select="ancestor-or-self::wms:Layer/wms:CRS[not(. = ../ancestor::wms:Layer/wms:CRS)]">
+                              <x/>
+                           </xsl:for-each>
+                        </xsl:for-each>
+                     </xsl:variable>
+                     <ctl:form xmlns="">
+                        <p>
+                           Do you want to exhaustively test each Layer/CRS combination?<br/>
+                           There are <xsl:value-of select="count($combinations/x)"/> combinations to test.
+                        </p>
+                        <p>
+                           <input type="submit" name="answer" value="yes"/>
+                           <input type="submit" name="answer" value="no"/>
+                        </p>
+                     </ctl:form>
+                  </xsl:variable>
+                  <xsl:if test="$form-results/values/value[@key='answer']='yes'">exhaustive</xsl:if>
+               </xsl:if>
+            </xsl:if>
+         </xsl:variable>
+
+         <ctl:call-test name="interactive:main"/>
+
+         <ctl:call-test name="basic_elements:main"/>
+
+         <ctl:call-test name="getcapabilities:main">
+            <ctl:with-param name="high-updatesequence" select="$high-updatesequence"/>
+            <ctl:with-param name="low-updatesequence" select="$low-updatesequence"/>
+         </ctl:call-test>
+
+         <ctl:call-test name="getmap:main">
+            <ctl:with-param name="exhaustive" select="$exhaustive"/>
+         </ctl:call-test>
+
+         <ctl:call-test name="getfeatureinfo:main"/>
+
+         <ctl:call-test name="dims:main"/>
       </ctl:code>
    </ctl:test>
 
