@@ -18,25 +18,18 @@
 >
 
    <ctl:test name="getfeatureinfo:main">
-      <ctl:param name="queryable"/>
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>The GetFeatureInfo request behaves properly.</ctl:assertion>
       <ctl:code>
          <xsl:choose>
             <xsl:when test="not(wms:Capability/wms:Request/wms:GetFeatureInfo/wms:DCPType/wms:HTTP/wms:Get)">
                <ctl:message>The GetFeatureInfo request is not supported.</ctl:message>
-               <xsl:if test="$queryable='queryable'">
-                  <ctl:fail/>
-               </xsl:if>
             </xsl:when>
             <xsl:otherwise>
                <ctl:call-test name="getfeatureinfo:exceptions"/>
                <xsl:choose>
                   <xsl:when test="not(wms:Capability//wms:Layer[@queryable and functions:boolean-as-integer(@queryable) = 1]/wms:Name)">
                      <ctl:message>No queryable layers in capabilities XML.</ctl:message>
-                     <xsl:if test="$queryable='queryable'">
-                        <ctl:fail/>
-                     </xsl:if>
                   </xsl:when>
                   <xsl:otherwise>
                      <ctl:call-test name="getfeatureinfo:info_format"/>

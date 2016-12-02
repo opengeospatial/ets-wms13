@@ -260,9 +260,7 @@
                <ctl:with-param name="exhaustive" select="$exhaustive"/>
             </ctl:call-test>
 
-            <ctl:call-test name="getfeatureinfo:main">
-               <ctl:with-param name="queryable" select="$queryable"/>
-            </ctl:call-test>
+            <ctl:call-test name="getfeatureinfo:main"/>
 
             <xsl:if test="$recommended = 'recommended'">
                <ctl:call-test name="recommendations:main"/>
@@ -282,9 +280,7 @@
             </xsl:if>
 
             <xsl:if test="$queryable='queryable'">
-               <ctl:call-test name="queryable:main">
-                  <ctl:with-param name="queryable" select="$queryable"/>
-               </ctl:call-test>
+               <ctl:call-test name="queryable:main"/>
             </xsl:if>
 
             <xsl:if test="$raster_elevation='raster_elevation'">

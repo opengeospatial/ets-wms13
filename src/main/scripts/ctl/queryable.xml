@@ -18,19 +18,15 @@
 >
 
    <ctl:test name="queryable:main">
-      <ctl:param name="queryable"/>
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>Queryable request behaves properly.</ctl:assertion>
       <ctl:code>
          <ctl:call-test name="queryable:options-requirements"/>
-         <ctl:call-test name="queryable:getfeatureinfo">
-            <ctl:with-param name="queryable" select="$queryable"/>
-         </ctl:call-test>
+         <ctl:call-test name="queryable:getfeatureinfo"/>
       </ctl:code>
    </ctl:test>
 
    <ctl:test name="queryable:options-requirements">
-      <ctl:param name="queryable"/>
       <ctl:context>Capabilities XML</ctl:context>
       <ctl:assertion>The requirements for testing the selected options are met.</ctl:assertion>
       <ctl:code>
@@ -40,29 +36,22 @@
    </ctl:test>
 
    <ctl:test name="queryable:getfeatureinfo">
-      <ctl:param name="queryable"/>
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>The GetFeatureInfo request behaves properly.</ctl:assertion>
       <ctl:code>
          <xsl:choose>
             <xsl:when test="not(wms:Capability/wms:Request/wms:GetFeatureInfo/wms:DCPType/wms:HTTP/wms:Get)">
                <ctl:message>The GetFeatureInfo request is not supported.</ctl:message>
-               <xsl:if test="$queryable='queryable'">
-                  <ctl:fail/>
-               </xsl:if>
+               <ctl:fail/>
             </xsl:when>
             <xsl:otherwise>
                <xsl:choose>
                   <xsl:when test="not(wms:Capability//wms:Layer[@queryable and functions:boolean-as-integer(@queryable) = 1]/wms:Name)">
                      <ctl:message>No queryable layers in capabilities XML.</ctl:message>
-                     <xsl:if test="$queryable='queryable'">
-                        <ctl:fail/>
-                     </xsl:if>
+                     <ctl:fail/>
                   </xsl:when>
                   <xsl:otherwise>
-                     <ctl:call-test name="queryable:feature_count">
-                        <ctl:with-param name="queryable" select="$queryable"/>
-                     </ctl:call-test>
+                     <ctl:call-test name="queryable:feature_count"/>
                   </xsl:otherwise>
                </xsl:choose>
             </xsl:otherwise>
@@ -71,14 +60,11 @@
    </ctl:test>
 
    <ctl:test name="queryable:feature_count">
-      <ctl:param name="queryable"/>
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>The FEATURE_COUNT parameter behaves properly.</ctl:assertion>
       <ctl:code>
-         <xsl:if test="$queryable='queryable'">
-            <ctl:call-test name="queryable:feature_count-default"/>
-            <ctl:call-test name="queryable:feature_count-1"/>
-         </xsl:if>
+         <ctl:call-test name="queryable:feature_count-default"/>
+         <ctl:call-test name="queryable:feature_count-1"/>
       </ctl:code>
    </ctl:test>
 
