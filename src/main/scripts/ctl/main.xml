@@ -220,13 +220,13 @@
 
          <ctl:for-each select="$capabilities/wms:WMS_Capabilities">
 
-            <ctl:call-test name="main:universal">
+            <ctl:call-test name="main:data-independent">
                <ctl:with-param name="high-updatesequence" select="$high-updatesequence"/>
                <ctl:with-param name="low-updatesequence" select="$low-updatesequence"/>
             </ctl:call-test>
 
             <xsl:if test="$basic='basic' or $queryable='queryable'">
-               <ctl:call-test name="main:std-data-present">
+               <ctl:call-test name="main:data-preconditions">
                   <ctl:with-param name="raster_elevation" select="$raster_elevation"/>
                   <ctl:with-param name="time" select="$time"/>
                </ctl:call-test>
@@ -262,11 +262,11 @@
       </ctl:code>
    </ctl:test>
 
-   <ctl:test name="main:universal">
+   <ctl:test name="main:data-independent">
       <ctl:param name="high-updatesequence"/>
       <ctl:param name="low-updatesequence"/>
       <ctl:context>WMS_Capabilities element</ctl:context>
-      <ctl:assertion>Universal (dataset independent) request behaves properly.</ctl:assertion>
+      <ctl:assertion>Dataset independent request behaves properly.</ctl:assertion>
       <ctl:code>
          <xsl:variable name="exhaustive">
             <xsl:if test="function-available('te:isWeb')" xmlns:te="http://www.occamlab.com/te">
@@ -314,7 +314,7 @@
       </ctl:code>
    </ctl:test>
 
-   <ctl:test name="main:std-data-present">
+   <ctl:test name="main:data-preconditions">
       <ctl:param name="raster_elevation"/>
       <ctl:param name="time"/>
       <ctl:context>Capabilities XML</ctl:context>
