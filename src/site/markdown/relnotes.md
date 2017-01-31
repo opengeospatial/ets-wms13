@@ -1,6 +1,11 @@
 WMS 1.3.0 Test Suite Release Notes
 ==================================
 
+1.20 (2016-01-31)
+------------------
+* [#35](https://github.com/opengeospatial/ets-wms13/issues/35) - Test should represent better the conformance classes
+* [#37](https://github.com/opengeospatial/ets-wms13/issues/37) - missing urlencoding
+
 1.19 (2016-11-18)
 ------------------
 * [#34](https://github.com/opengeospatial/ets-wms13/issues/34) - Add CtlController to enable execution via RESTful API (skips tests requiring manual verification)
