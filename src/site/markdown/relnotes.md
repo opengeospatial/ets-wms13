@@ -1,7 +1,7 @@
 WMS 1.3.0 Test Suite Release Notes
 ==================================
 
-1.20 (2016-01-31)
+1.20 (2017-01-31)
 ------------------
 * [#35](https://github.com/opengeospatial/ets-wms13/issues/35) - Test should represent better the conformance classes
 * [#37](https://github.com/opengeospatial/ets-wms13/issues/37) - missing urlencoding
