@@ -867,7 +867,7 @@
             <ctl:call-function name="functions:queryable-layer-info">
                <ctl:with-param name="root-layer" select="$capabilities/wms:Capability/wms:Layer"/>
                <ctl:with-param name="preferred-name" select="$layer"/>
-               <ctl:with-param name="preferred-crs">EPSG:4326</ctl:with-param>
+               <ctl:with-param name="preferred-crs">CRS:84</ctl:with-param>
                <ctl:with-param name="preferred-bbox"></ctl:with-param>
                <ctl:with-param name="preferred-width">100</ctl:with-param>
                <ctl:with-param name="preferred-height">100</ctl:with-param>
