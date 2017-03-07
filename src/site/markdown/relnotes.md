@@ -1,6 +1,10 @@
 WMS 1.3.0 Test Suite Release Notes
 ==================================
 
+1.21 (2017-03-07)
+------------------
+* [#40](https://github.com/opengeospatial/ets-wms13/issues/40) - the getfeatureinfo:each-queryable-layer tests pass an empty CRS string
+
 1.20 (2017-01-31)
 ------------------
 * [#35](https://github.com/opengeospatial/ets-wms13/issues/35) - Test should represent better the conformance classes
