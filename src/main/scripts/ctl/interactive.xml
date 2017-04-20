@@ -8,7 +8,7 @@
  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 >
 
-   <ctl:test name="interactive:main">
+   <ctl:test name="interactive:interactive">
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>The tests that require user interaction behave properly.</ctl:assertion>
       <ctl:code>

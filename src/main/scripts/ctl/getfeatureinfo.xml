@@ -17,7 +17,7 @@
  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 >
 
-   <ctl:test name="getfeatureinfo:main">
+   <ctl:test name="getfeatureinfo:getfeatureinfo">
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>The GetFeatureInfo request behaves properly.</ctl:assertion>
       <ctl:code>

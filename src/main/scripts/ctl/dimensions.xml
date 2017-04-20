@@ -11,7 +11,7 @@
  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 >
 
-   <ctl:test name="dims:main">
+   <ctl:test name="dims:dims">
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>Support for dimensional data is correct.</ctl:assertion>
       <ctl:code>

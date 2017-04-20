@@ -18,7 +18,7 @@
  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 >
 
-   <ctl:test name="recomendations:main">
+   <ctl:test name="recomendations:recomendations">
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>If the "Check Recommendations" option was selected, the server supports fuctionality which is recommended in the spec, but not required.</ctl:assertion>
       <ctl:code>

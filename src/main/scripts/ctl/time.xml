@@ -119,7 +119,7 @@
       </ctl:java>
    </ctl:parser>
 
-   <ctl:test name="time:main">
+   <ctl:test name="time:time">
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>Time request behaves properly.</ctl:assertion>
       <ctl:code>
@@ -132,7 +132,7 @@
       <ctl:context>Capabilities XML</ctl:context>
       <ctl:assertion>The requirements for testing the selected options are met.</ctl:assertion>
       <ctl:code>
-         <ctl:call-test name="time:time"/>
+         <ctl:call-test name="time:time-options-requirements"/>
       </ctl:code>
    </ctl:test>
 
@@ -144,7 +144,7 @@
       </ctl:code>
    </ctl:test>
 
-   <ctl:test name="time:time">
+   <ctl:test name="time:time-options-requirements">
       <ctl:context>Capabilities XML</ctl:context>
       <ctl:assertion>The server supports the cite:Autos layer with a properly declared time dimenson.</ctl:assertion>
       <ctl:link title="Test requirements">docs/wms/1.3.0/#requirements</ctl:link>
