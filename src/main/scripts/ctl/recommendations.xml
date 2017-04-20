@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ctl:package
- xmlns:recomendations="https://cite.opengeospatial.org/wms-1.3.0/src/ctl/recomendations.xml"
+ xmlns:recommendations="https://cite.opengeospatial.org/wms-1.3.0/src/ctl/recommendations.xml"
  xmlns:functions="https://cite.opengeospatial.org/wms-1.3.0/src/ctl/functions.xml"
  xmlns:ccf="http://www.opengis.net/cite/complex"
  xmlns:cdf="http://www.opengis.net/cite/data"
@@ -18,23 +18,23 @@
  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 >
 
-   <ctl:test name="recomendations:recomendations">
+   <ctl:test name="recommendations:recommendations">
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>If the "Check Recommendations" option was selected, the server supports fuctionality which is recommended in the spec, but not required.</ctl:assertion>
       <ctl:code>
-         <ctl:call-test name="recomendations:service-keywords"/>
-         <ctl:call-test name="recomendations:service-contact-info"/>
-         <ctl:call-test name="recomendations:png-getmap-format"/>
-         <ctl:call-test name="recomendations:layer-abstracts"/>
-         <ctl:call-test name="recomendations:layer-keywordlists"/>
-         <ctl:call-test name="recomendations:layer-crs"/>
-         <ctl:call-test name="recomendations:metadataurls"/>
-         <ctl:call-test name="recomendations:dims-no-whitespace"/>
-         <ctl:call-test name="recomendations:dims-defaults"/>
+         <ctl:call-test name="recommendations:service-keywords"/>
+         <ctl:call-test name="recommendations:service-contact-info"/>
+         <ctl:call-test name="recommendations:png-getmap-format"/>
+         <ctl:call-test name="recommendations:layer-abstracts"/>
+         <ctl:call-test name="recommendations:layer-keywordlists"/>
+         <ctl:call-test name="recommendations:layer-crs"/>
+         <ctl:call-test name="recommendations:metadataurls"/>
+         <ctl:call-test name="recommendations:dims-no-whitespace"/>
+         <ctl:call-test name="recommendations:dims-defaults"/>
       </ctl:code>
    </ctl:test>
 
-   <ctl:test name="recomendations:service-keywords">
+   <ctl:test name="recommendations:service-keywords">
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>The capabilities document includes a list of keywords or keyword phrases describing the server.</ctl:assertion>
       <ctl:link title="WMS 1.3.0 section 7.2.4.3">http://cite.opengeospatial.org/OGCTestData/wms/1.3.0/spec/wms1_3.html#wmsops.getcapabilities.response.general_metadata</ctl:link>
@@ -45,7 +45,7 @@
       </ctl:code>
    </ctl:test>
 
-   <ctl:test name="recomendations:service-contact-info">
+   <ctl:test name="recommendations:service-contact-info">
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>The capabilities document includes contact information.</ctl:assertion>
       <ctl:comment>Makes sure an address, phone number, or email address is provided.</ctl:comment>
@@ -57,7 +57,7 @@
       </ctl:code>
    </ctl:test>
 
-   <ctl:test name="recomendations:png-getmap-format">
+   <ctl:test name="recommendations:png-getmap-format">
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>The server advertises the image/png format for the GetMap operation.</ctl:assertion>
       <ctl:link title="WMS 1.3.0 section 7.2.4.4">http://cite.opengeospatial.org/OGCTestData/wms/1.3.0/spec/wms1_3.html#wmsops.getcapabilities.response.capability_metadata</ctl:link>
@@ -69,7 +69,7 @@
       </ctl:code>
    </ctl:test>
 
-   <ctl:test name="recomendations:layer-abstracts">
+   <ctl:test name="recommendations:layer-abstracts">
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>Each Layer in the capabilities document contains an abstract.</ctl:assertion>
       <ctl:comment>Only applied to layers with a name</ctl:comment>
@@ -84,7 +84,7 @@
       </ctl:code>
    </ctl:test>
 
-   <ctl:test name="recomendations:layer-keywordlists">
+   <ctl:test name="recommendations:layer-keywordlists">
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>Each Layer in the capabilities document contains a keyword list.</ctl:assertion>
       <ctl:comment>Only applied to layers with a name</ctl:comment>
@@ -99,7 +99,7 @@
       </ctl:code>
    </ctl:test>
 
-   <ctl:test name="recomendations:layer-crs">
+   <ctl:test name="recommendations:layer-crs">
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>All layers in the capabilities document are available in the CRS:84 and/or EPSG:4326 CRS.</ctl:assertion>
       <ctl:link title="WMS 1.3.0 section 6.7.3.1">http://cite.opengeospatial.org/OGCTestData/wms/1.3.0/spec/wms1_3.html#basic_elements.cs.layer.intro</ctl:link>
@@ -111,7 +111,7 @@
       </ctl:code>
    </ctl:test>
 
-   <ctl:test name="recomendations:metadataurls">
+   <ctl:test name="recommendations:metadataurls">
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>Every named Layer in the capabilities document contains a MetadataURL element.</ctl:assertion>
       <ctl:link title="WMS 1.3.0 section 7.2.4.6.11">http://cite.opengeospatial.org/OGCTestData/wms/1.3.0/spec/wms1_3.html#wmsops.getcapabilities.response.layer_properties.metadataurl</ctl:link>
@@ -123,7 +123,7 @@
       </ctl:code>
    </ctl:test>
 
-   <ctl:test name="recomendations:dims-no-whitespace">
+   <ctl:test name="recommendations:dims-no-whitespace">
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>No dimension name values in the capabilities document contain whitespace.</ctl:assertion>
       <ctl:comment/>
@@ -136,7 +136,7 @@
       </ctl:code>
    </ctl:test>
 
-   <ctl:test name="recomendations:dims-defaults">
+   <ctl:test name="recommendations:dims-defaults">
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>Each dimension declaration in the capabilities document contains a default value.</ctl:assertion>
       <ctl:comment/>

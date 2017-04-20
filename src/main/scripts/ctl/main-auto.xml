@@ -7,7 +7,7 @@
  xmlns:getcapabilities="https://cite.opengeospatial.org/wms-1.3.0/src/ctl/getcapabilities.xml"
  xmlns:getmap="https://cite.opengeospatial.org/wms-1.3.0/src/ctl/getmap.xml"
  xmlns:getfeatureinfo="https://cite.opengeospatial.org/wms-1.3.0/src/ctl/getfeatureinfo.xml"
- xmlns:recommendations="https://cite.opengeospatial.org/wms-1.3.0/src/ctl/recomendations.xml"
+ xmlns:recommendations="https://cite.opengeospatial.org/wms-1.3.0/src/ctl/recommendations.xml"
  xmlns:dims="https://cite.opengeospatial.org/wms-1.3.0/src/ctl/dimensions.xml"
  xmlns:interactive="https://cite.opengeospatial.org/wms-1.3.0/src/ctl/interactive.xml"
  xmlns:basic="https://cite.opengeospatial.org/wms-1.3.0/src/ctl/basic.xml"
