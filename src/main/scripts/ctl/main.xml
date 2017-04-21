@@ -159,7 +159,7 @@
                      <td align="center">
                         <input name="recommended" type="checkbox" value="recommended"/>
                      </td>
-                     <td align="left">recommendations - Test functionality which is recommended in the specification.</td>
+                     <td align="left">RECOMMENDATIONS - Test functionality which is recommended in the specification.</td>
                   </tr>
                </table>
             </blockquote>
