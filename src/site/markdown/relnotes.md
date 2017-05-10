@@ -1,6 +1,10 @@
 WMS 1.3.0 Test Suite Release Notes
 ==================================
 
+1.22 (2017-05-10)
+------------------
+* [#39](https://github.com/opengeospatial/ets-wms13/issues/39) - Extracting local names and prefixes
+
 1.21 (2017-03-07)
 ------------------
 * [#40](https://github.com/opengeospatial/ets-wms13/issues/40) - the getfeatureinfo:each-queryable-layer tests pass an empty CRS string
