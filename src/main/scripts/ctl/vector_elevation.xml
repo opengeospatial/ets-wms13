@@ -17,7 +17,7 @@
  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 >
 
-   <ctl:test name="vector_elevation:main">
+   <ctl:test name="vector_elevation:vector_elevation">
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>Vector elevation request behaves properly.</ctl:assertion>
       <ctl:code>

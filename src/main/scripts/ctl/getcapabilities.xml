@@ -17,7 +17,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <ctl:test name="getcapabilities:main">
+  <ctl:test name="getcapabilities:getcapabilities">
     <ctl:param name="high-updatesequence">An updateSequence value higher than the current updateSequence value advertised in the capabilities XML.</ctl:param>
     <ctl:param name="low-updatesequence">An updateSequence value lower than the current updateSequence value advertised in the capabilities XML.</ctl:param>
     <ctl:context>WMS_Capabilities element</ctl:context>

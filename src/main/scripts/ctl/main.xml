@@ -7,7 +7,7 @@
  xmlns:getcapabilities="https://cite.opengeospatial.org/wms-1.3.0/src/ctl/getcapabilities.xml"
  xmlns:getmap="https://cite.opengeospatial.org/wms-1.3.0/src/ctl/getmap.xml"
  xmlns:getfeatureinfo="https://cite.opengeospatial.org/wms-1.3.0/src/ctl/getfeatureinfo.xml"
- xmlns:recommendations="https://cite.opengeospatial.org/wms-1.3.0/src/ctl/recomendations.xml"
+ xmlns:recommendations="https://cite.opengeospatial.org/wms-1.3.0/src/ctl/recommendations.xml"
  xmlns:dims="https://cite.opengeospatial.org/wms-1.3.0/src/ctl/dimensions.xml"
  xmlns:interactive="https://cite.opengeospatial.org/wms-1.3.0/src/ctl/interactive.xml"
  xmlns:basic="https://cite.opengeospatial.org/wms-1.3.0/src/ctl/basic.xml"
@@ -159,7 +159,7 @@
                      <td align="center">
                         <input name="recommended" type="checkbox" value="recommended"/>
                      </td>
-                     <td align="left">RECOMENDATIONS - Test functionality which is recommended in the specification.</td>
+                     <td align="left">RECOMMENDATIONS - Test functionality which is recommended in the specification.</td>
                   </tr>
                </table>
             </blockquote>
@@ -233,29 +233,29 @@
             </xsl:if>
 
             <xsl:if test="$basic='basic'">
-               <ctl:call-test name="basic:main">
+               <ctl:call-test name="basic:basic">
                   <ctl:with-param name="is-interactive-enabled" select="'yes'"/>
                </ctl:call-test>
             </xsl:if>
 
             <xsl:if test="$queryable='queryable'">
-               <ctl:call-test name="queryable:main"/>
+               <ctl:call-test name="queryable:queryable"/>
             </xsl:if>
 
             <xsl:if test="$raster_elevation='raster_elevation'">
-               <ctl:call-test name="raster_elevation:main"/>
+               <ctl:call-test name="raster_elevation:raster_elevation"/>
             </xsl:if>
 
             <xsl:if test="$vector_elevation='vector_elevation'">
-               <ctl:call-test name="vector_elevation:main"/>
+               <ctl:call-test name="vector_elevation:vector_elevation"/>
             </xsl:if>
 
             <xsl:if test="$time='time'">
-               <ctl:call-test name="time:main"/>
+               <ctl:call-test name="time:time"/>
             </xsl:if>
 
             <xsl:if test="$recommended = 'recommended'">
-               <ctl:call-test name="recommendations:main"/>
+               <ctl:call-test name="recommendations:recommendations"/>
             </xsl:if>
 
          </ctl:for-each>
@@ -295,22 +295,22 @@
             </xsl:if>
          </xsl:variable>
 
-         <ctl:call-test name="interactive:main"/>
+         <ctl:call-test name="interactive:interactive"/>
 
-         <ctl:call-test name="basic_elements:main"/>
+         <ctl:call-test name="basic_elements:basic_elements"/>
 
-         <ctl:call-test name="getcapabilities:main">
+         <ctl:call-test name="getcapabilities:getcapabilities">
             <ctl:with-param name="high-updatesequence" select="$high-updatesequence"/>
             <ctl:with-param name="low-updatesequence" select="$low-updatesequence"/>
          </ctl:call-test>
 
-         <ctl:call-test name="getmap:main">
+         <ctl:call-test name="getmap:getmap">
             <ctl:with-param name="exhaustive" select="$exhaustive"/>
          </ctl:call-test>
 
-         <ctl:call-test name="getfeatureinfo:main"/>
+         <ctl:call-test name="getfeatureinfo:getfeatureinfo"/>
 
-         <ctl:call-test name="dims:main"/>
+         <ctl:call-test name="dims:dims"/>
       </ctl:code>
    </ctl:test>
 

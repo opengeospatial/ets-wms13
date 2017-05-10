@@ -17,7 +17,7 @@
  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 >
 
-   <ctl:test name="queryable:main">
+   <ctl:test name="queryable:queryable">
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>Queryable request behaves properly.</ctl:assertion>
       <ctl:code>

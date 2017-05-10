@@ -17,7 +17,7 @@
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <ctl:test name="getmap:main">
+  <ctl:test name="getmap:getmap">
     <ctl:param name="exhaustive"/>
     <ctl:context>WMS_Capabilities element</ctl:context>
     <ctl:assertion>The GetMap request behaves properly.</ctl:assertion>

@@ -16,7 +16,7 @@
  xmlns:xs="http://www.w3.org/2001/XMLSchema"
  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-   <ctl:test name="basic_elements:main">
+   <ctl:test name="basic_elements:basic_elements">
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>The basic service elements behave properly.</ctl:assertion>
       <ctl:code>
