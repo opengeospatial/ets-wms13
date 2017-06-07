@@ -466,11 +466,29 @@
           <ctl:param name="LaYeRs">
             <xsl:value-of select="functions:encode($layer-info/LayerInfo/@name)"/>
           </ctl:param>
+          <parsers:HTTPParser>
+            <parsers:parse mime="text/xml" />
+            <parsers:parse mime="image">
+              <parsers:NullParser/>
+            </parsers:parse>
+          </parsers:HTTPParser>
         </ctl:request>
       </xsl:variable>
-      <xsl:if test="not($response/ogc:ServiceExceptionReport/ogc:ServiceException)">
-        <ctl:fail/>
-      </xsl:if>
+      <xsl:variable name="content-type" select="$response//header[functions:to-lowercase(@name) = 'content-type']" />
+      <xsl:choose>
+        <xsl:when test="contains($content-type, '/xml')">
+          <xsl:if test="not($response/response/content/ogc:ServiceExceptionReport/ogc:ServiceException)">
+            <ctl:message>[FAIL] Expected ServiceException.</ctl:message>
+            <ctl:fail />
+          </xsl:if>
+        </xsl:when>
+        <xsl:otherwise>
+          <ctl:message>[FAIL] Expected XML media type, but received Content-Type: '<xsl:value-of
+                  select="$content-type" />'
+          </ctl:message>
+          <ctl:fail />
+        </xsl:otherwise>
+      </xsl:choose>
     </ctl:code>
   </ctl:test>
 
@@ -515,11 +533,29 @@
           <ctl:param name="ReQuEsT">GetMap</ctl:param>
           <ctl:param name="HeIgHt">100</ctl:param>
           <ctl:param name="BbOx">0,0,0,1</ctl:param>
+          <parsers:HTTPParser>
+            <parsers:parse mime="text/xml" />
+            <parsers:parse mime="image" >
+              <parsers:NullParser/>
+            </parsers:parse>
+          </parsers:HTTPParser>
         </ctl:request>
       </xsl:variable>
-      <xsl:if test="not($response/ogc:ServiceExceptionReport/ogc:ServiceException)">
-        <ctl:fail/>
-      </xsl:if>
+      <xsl:variable name="content-type" select="$response//header[functions:to-lowercase(@name) = 'content-type']" />
+      <xsl:choose>
+        <xsl:when test="contains($content-type, '/xml')">
+          <xsl:if test="not($response/response/content/ogc:ServiceExceptionReport/ogc:ServiceException)">
+            <ctl:message>[FAIL] Expected ServiceException.</ctl:message>
+            <ctl:fail />
+          </xsl:if>
+        </xsl:when>
+        <xsl:otherwise>
+          <ctl:message>[FAIL] Expected XML media type, but received Content-Type: '<xsl:value-of
+                  select="$content-type" />'
+          </ctl:message>
+          <ctl:fail />
+        </xsl:otherwise>
+      </xsl:choose>
     </ctl:code>
   </ctl:test>
 
@@ -564,11 +600,29 @@
             <xsl:value-of select="functions:encode($layer-info/LayerInfo/@name)"/>
           </ctl:param>
           <ctl:param name="HeIgHt">100</ctl:param>
+          <parsers:HTTPParser>
+            <parsers:parse mime="text/xml" />
+            <parsers:parse mime="image" >
+              <parsers:NullParser/>
+            </parsers:parse>
+          </parsers:HTTPParser>
         </ctl:request>
       </xsl:variable>
-      <xsl:if test="not($response/ogc:ServiceExceptionReport/ogc:ServiceException)">
-        <ctl:fail/>
-      </xsl:if>
+      <xsl:variable name="content-type" select="$response//header[functions:to-lowercase(@name) = 'content-type']" />
+      <xsl:choose>
+        <xsl:when test="contains($content-type, '/xml')">
+          <xsl:if test="not($response/response/content/ogc:ServiceExceptionReport/ogc:ServiceException)">
+            <ctl:message>[FAIL] Expected ServiceException.</ctl:message>
+            <ctl:fail />
+          </xsl:if>
+        </xsl:when>
+        <xsl:otherwise>
+          <ctl:message>[FAIL] Expected XML media type, but received Content-Type: '<xsl:value-of
+                  select="$content-type" />'
+          </ctl:message>
+          <ctl:fail />
+        </xsl:otherwise>
+      </xsl:choose>
     </ctl:code>
   </ctl:test>
 
@@ -613,11 +667,29 @@
             <xsl:value-of select="functions:encode($layer-info/LayerInfo/@crs)"/>
           </ctl:param>
           <ctl:param name="HeIgHt">100</ctl:param>
+          <parsers:HTTPParser>
+            <parsers:parse mime="text/xml" />
+            <parsers:parse mime="image" >
+              <parsers:NullParser/>
+            </parsers:parse>
+          </parsers:HTTPParser>
         </ctl:request>
       </xsl:variable>
-      <xsl:if test="not($response/ogc:ServiceExceptionReport/ogc:ServiceException)">
-        <ctl:fail/>
-      </xsl:if>
+      <xsl:variable name="content-type" select="$response//header[functions:to-lowercase(@name) = 'content-type']" />
+      <xsl:choose>
+        <xsl:when test="contains($content-type, '/xml')">
+          <xsl:if test="not($response/response/content/ogc:ServiceExceptionReport/ogc:ServiceException)">
+            <ctl:message>[FAIL] Expected ServiceException.</ctl:message>
+            <ctl:fail />
+          </xsl:if>
+        </xsl:when>
+        <xsl:otherwise>
+          <ctl:message>[FAIL] Expected XML media type, but received Content-Type: '<xsl:value-of
+                  select="$content-type" />'
+          </ctl:message>
+          <ctl:fail />
+        </xsl:otherwise>
+      </xsl:choose>
     </ctl:code>
   </ctl:test>
 
@@ -886,45 +958,25 @@
             <xsl:value-of select="functions:version()"/>
           </ctl:param>
           <parsers:HTTPParser>
-            <!-- ignore entity body -->
-            <parsers:parse><parsers:NullParser/></parsers:parse>
+            <parsers:parse mime="text/xml" />
+            <parsers:parse mime="image" >
+              <parsers:NullParser/>
+            </parsers:parse>
           </parsers:HTTPParser>
         </ctl:request>
       </xsl:variable>
-      <xsl:variable name="content-type" select="$response//header[functions:to-lowercase(@name) = 'content-type']"/>
+      <xsl:variable name="content-type" select="$response//header[functions:to-lowercase(@name) = 'content-type']" />
       <xsl:choose>
         <xsl:when test="contains($content-type, '/xml')">
-          <!-- repeat request and check entity body -->
-          <xsl:variable name="response2">
-            <ctl:request>
-              <ctl:url>
-                <xsl:value-of select="wms:Capability/wms:Request/wms:GetMap/wms:DCPType/wms:HTTP/wms:Get/wms:OnlineResource/@xlink:href"/>
-              </ctl:url>
-              <ctl:method>GET</ctl:method>
-              <ctl:param name="StYlEs"/>
-              <ctl:param name="ReQuEsT">GetMap</ctl:param>
-              <ctl:param name="HeIgHt">200</ctl:param>
-              <ctl:param name="FoRmAt">
-                <xsl:value-of select="functions:encode($image-format)"/>
-              </ctl:param>
-              <ctl:param name="BbOx">-1,-1,1,1</ctl:param>
-              <ctl:param name="CrS">UndefinedCRS</ctl:param>
-              <ctl:param name="WiDtH">200</ctl:param>
-              <ctl:param name="LaYeRs">
-                <xsl:value-of select="functions:encode($layer)"/>
-              </ctl:param>
-              <ctl:param name="VeRsIoN">
-                <xsl:value-of select="functions:version()"/>
-              </ctl:param>
-            </ctl:request>
-          </xsl:variable>
-          <xsl:if test="not($response2//ogc:ServiceExceptionReport/ogc:ServiceException[@code='InvalidCRS'])">
+          <xsl:if test="not($response/response/content/ogc:ServiceExceptionReport/ogc:ServiceException[@code='InvalidCRS'])">
             <ctl:message>[FAIL] Expected ServiceException with code 'InvalidCRS'.</ctl:message>
             <ctl:fail />
           </xsl:if>
         </xsl:when>
         <xsl:otherwise>
-          <ctl:message>[FAIL] Expected XML media type, but received Content-Type: '<xsl:value-of select="$content-type"/>'</ctl:message>
+          <ctl:message>[FAIL] Expected XML media type, but received Content-Type: '<xsl:value-of
+                  select="$content-type" />'
+          </ctl:message>
           <ctl:fail />
         </xsl:otherwise>
       </xsl:choose>
@@ -1328,11 +1380,29 @@
           <ctl:param name="BbOx">
             <xsl:value-of select="$layer-info/LayerInfo/@bbox"/>
           </ctl:param>
+          <parsers:HTTPParser>
+            <parsers:parse mime="text/xml" />
+            <parsers:parse mime="image" >
+              <parsers:NullParser/>
+            </parsers:parse>
+          </parsers:HTTPParser>
         </ctl:request>
       </xsl:variable>
-      <xsl:if test="not($response/ogc:ServiceExceptionReport/ogc:ServiceException[@code='InvalidFormat'])">
-        <ctl:fail/>
-      </xsl:if>
+      <xsl:variable name="content-type" select="$response//header[functions:to-lowercase(@name) = 'content-type']" />
+      <xsl:choose>
+        <xsl:when test="contains($content-type, '/xml')">
+          <xsl:if test="not($response/response/content/ogc:ServiceExceptionReport/ogc:ServiceException[@code='InvalidFormat'])">
+            <ctl:message>[FAIL] Expected ServiceException with code 'InvalidFormat'.</ctl:message>
+            <ctl:fail />
+          </xsl:if>
+        </xsl:when>
+        <xsl:otherwise>
+          <ctl:message>[FAIL] Expected XML media type, but received Content-Type: '<xsl:value-of
+                  select="$content-type" />'
+          </ctl:message>
+          <ctl:fail />
+        </xsl:otherwise>
+      </xsl:choose>
     </ctl:code>
   </ctl:test>
 
@@ -1597,11 +1667,29 @@
           <ctl:param name="CrS">
             <xsl:value-of select="functions:encode($layer-info/LayerInfo/@crs)"/>
           </ctl:param>
+          <parsers:HTTPParser>
+            <parsers:parse mime="text/xml" />
+            <parsers:parse mime="image" >
+              <parsers:NullParser/>
+            </parsers:parse>
+          </parsers:HTTPParser>
         </ctl:request>
       </xsl:variable>
-      <xsl:if test="not($response/ogc:ServiceExceptionReport/ogc:ServiceException[@code='LayerNotDefined'])">
-        <ctl:fail/>
-      </xsl:if>
+      <xsl:variable name="content-type" select="$response//header[functions:to-lowercase(@name) = 'content-type']" />
+      <xsl:choose>
+        <xsl:when test="contains($content-type, '/xml')">
+          <xsl:if test="not($response/response/content/ogc:ServiceExceptionReport/ogc:ServiceException[@code='LayerNotDefined'])">
+            <ctl:message>[FAIL] Expected ServiceException with code 'LayerNotDefined'.</ctl:message>
+            <ctl:fail />
+          </xsl:if>
+        </xsl:when>
+        <xsl:otherwise>
+          <ctl:message>[FAIL] Expected XML media type, but received Content-Type: '<xsl:value-of
+                  select="$content-type" />'
+          </ctl:message>
+          <ctl:fail />
+        </xsl:otherwise>
+      </xsl:choose>
     </ctl:code>
   </ctl:test>
 
@@ -1650,11 +1738,29 @@
           <ctl:param name="HeIgHt">
             <xsl:value-of select="$layer-info/LayerInfo/@height"/>
           </ctl:param>
+          <parsers:HTTPParser>
+            <parsers:parse mime="text/xml" />
+            <parsers:parse mime="image" >
+              <parsers:NullParser/>
+            </parsers:parse>
+          </parsers:HTTPParser>
         </ctl:request>
       </xsl:variable>
-      <xsl:if test="not($response/ogc:ServiceExceptionReport/ogc:ServiceException[@code='LayerNotDefined'])">
-        <ctl:fail/>
-      </xsl:if>
+      <xsl:variable name="content-type" select="$response//header[functions:to-lowercase(@name) = 'content-type']" />
+      <xsl:choose>
+        <xsl:when test="contains($content-type, '/xml')">
+          <xsl:if test="not($response/response/content/ogc:ServiceExceptionReport/ogc:ServiceException[@code='LayerNotDefined'])">
+            <ctl:message>[FAIL] Expected ServiceException with code 'LayerNotDefined'.</ctl:message>
+            <ctl:fail />
+          </xsl:if>
+        </xsl:when>
+        <xsl:otherwise>
+          <ctl:message>[FAIL] Expected XML media type, but received Content-Type: '<xsl:value-of
+                  select="$content-type" />'
+          </ctl:message>
+          <ctl:fail />
+        </xsl:otherwise>
+      </xsl:choose>
     </ctl:code>
   </ctl:test>
 
@@ -1703,11 +1809,29 @@
           <ctl:param name="VeRsIoN">
             <xsl:value-of select="functions:version()"/>
           </ctl:param>
+          <parsers:HTTPParser>
+            <parsers:parse mime="text/xml" />
+            <parsers:parse mime="image" >
+              <parsers:NullParser/>
+            </parsers:parse>
+          </parsers:HTTPParser>
         </ctl:request>
       </xsl:variable>
-      <xsl:if test="not($response/ogc:ServiceExceptionReport/ogc:ServiceException[@code='LayerNotDefined'])">
-        <ctl:fail/>
-      </xsl:if>
+      <xsl:variable name="content-type" select="$response//header[functions:to-lowercase(@name) = 'content-type']" />
+      <xsl:choose>
+        <xsl:when test="contains($content-type, '/xml')">
+          <xsl:if test="not($response/response/content/ogc:ServiceExceptionReport/ogc:ServiceException[@code='LayerNotDefined'])">
+            <ctl:message>[FAIL] Expected ServiceException with code 'LayerNotDefined'.</ctl:message>
+            <ctl:fail />
+          </xsl:if>
+        </xsl:when>
+        <xsl:otherwise>
+          <ctl:message>[FAIL] Expected XML media type, but received Content-Type: '<xsl:value-of
+                  select="$content-type" />'
+          </ctl:message>
+          <ctl:fail />
+        </xsl:otherwise>
+      </xsl:choose>
     </ctl:code>
   </ctl:test>
 
@@ -2103,11 +2227,29 @@
             <xsl:value-of select="functions:encode($image-format)"/>
           </ctl:param>
           <ctl:param name="StYlEs">UndefinedStyle</ctl:param>
+          <parsers:HTTPParser>
+            <parsers:parse mime="text/xml" />
+            <parsers:parse mime="image" >
+              <parsers:NullParser/>
+            </parsers:parse>
+          </parsers:HTTPParser>
         </ctl:request>
       </xsl:variable>
-      <xsl:if test="not($response/ogc:ServiceExceptionReport/ogc:ServiceException[@code='StyleNotDefined'])">
-        <ctl:fail/>
-      </xsl:if>
+      <xsl:variable name="content-type" select="$response//header[functions:to-lowercase(@name) = 'content-type']" />
+      <xsl:choose>
+        <xsl:when test="contains($content-type, '/xml')">
+          <xsl:if test="not($response/response/content/ogc:ServiceExceptionReport/ogc:ServiceException[@code='StyleNotDefined'])">
+            <ctl:message>[FAIL] Expected ServiceException with code 'StyleNotDefined'.</ctl:message>
+            <ctl:fail />
+          </xsl:if>
+        </xsl:when>
+        <xsl:otherwise>
+          <ctl:message>[FAIL] Expected XML media type, but received Content-Type: '<xsl:value-of
+                  select="$content-type" />'
+          </ctl:message>
+          <ctl:fail />
+        </xsl:otherwise>
+      </xsl:choose>
     </ctl:code>
   </ctl:test>
 
@@ -2508,11 +2650,29 @@
               <ctl:param name="FoRmAt">
                 <xsl:value-of select="functions:encode($image-format)"/>
               </ctl:param>
+              <parsers:HTTPParser>
+                <parsers:parse mime="text/xml" />
+                <parsers:parse mime="image" >
+                  <parsers:NullParser/>
+                </parsers:parse>
+              </parsers:HTTPParser>
             </ctl:request>
           </xsl:variable>
-          <xsl:if test="not($response/ogc:ServiceExceptionReport/ogc:ServiceException[@code='StyleNotDefined'])">
-            <ctl:fail/>
-          </xsl:if>
+          <xsl:variable name="content-type" select="$response//header[functions:to-lowercase(@name) = 'content-type']" />
+          <xsl:choose>
+            <xsl:when test="contains($content-type, '/xml')">
+              <xsl:if test="not($response/response/content/ogc:ServiceExceptionReport/ogc:ServiceException[@code='StyleNotDefined'])">
+                <ctl:message>[FAIL] Expected ServiceException with code 'StyleNotDefined'.</ctl:message>
+                <ctl:fail />
+              </xsl:if>
+            </xsl:when>
+            <xsl:otherwise>
+              <ctl:message>[FAIL] Expected XML media type, but received Content-Type: '<xsl:value-of
+                      select="$content-type" />'
+              </ctl:message>
+              <ctl:fail />
+            </xsl:otherwise>
+          </xsl:choose>
         </xsl:otherwise>
       </xsl:choose>
     </ctl:code>
@@ -2581,11 +2741,29 @@
               <ctl:param name="VeRsIoN">
                 <xsl:value-of select="functions:version()"/>
               </ctl:param>
+              <parsers:HTTPParser>
+                <parsers:parse mime="text/xml" />
+                <parsers:parse mime="image" >
+                  <parsers:NullParser/>
+                </parsers:parse>
+              </parsers:HTTPParser>
             </ctl:request>
           </xsl:variable>
-          <xsl:if test="not($response/ogc:ServiceExceptionReport/ogc:ServiceException[@code='StyleNotDefined'])">
-            <ctl:fail/>
-          </xsl:if>
+          <xsl:variable name="content-type" select="$response//header[functions:to-lowercase(@name) = 'content-type']" />
+          <xsl:choose>
+            <xsl:when test="contains($content-type, '/xml')">
+              <xsl:if test="not($response/response/content/ogc:ServiceExceptionReport/ogc:ServiceException[@code='StyleNotDefined'])">
+                <ctl:message>[FAIL] Expected ServiceException with code 'StyleNotDefined'.</ctl:message>
+                <ctl:fail />
+              </xsl:if>
+            </xsl:when>
+            <xsl:otherwise>
+              <ctl:message>[FAIL] Expected XML media type, but received Content-Type: '<xsl:value-of
+                      select="$content-type" />'
+              </ctl:message>
+              <ctl:fail />
+            </xsl:otherwise>
+          </xsl:choose>
         </xsl:otherwise>
       </xsl:choose>
     </ctl:code>
