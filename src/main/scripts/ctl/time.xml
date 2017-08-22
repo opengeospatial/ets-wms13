@@ -119,7 +119,7 @@
       </ctl:java>
    </ctl:parser>
 
-   <ctl:test name="time:time">
+   <ctl:test name="time:time" isConformanceClass="true">
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>Time request behaves properly.</ctl:assertion>
       <ctl:code>
