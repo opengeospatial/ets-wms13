@@ -6,10 +6,9 @@
   <version>1.23-SNAPSHOT</version>
 
   <name>Conformance Test Suite - OGC Web Map Service 1.3.0</name>
-  <description>
-  Verifies conformance of implementations to OGC Web Map Service 1.3.0.
-  </description>
+  <description>Verifies conformance of implementations to OGC Web Map Service 1.3.0.</description>
   <url>https://github.com/opengeospatial/ets-wms13</url>
+
   <licenses>
     <license>
       <name>Apache License, Version 2.0</name>
@@ -21,16 +20,19 @@
     <name>Open Geospatial Consortium</name>
     <url>http://www.opengeospatial.org</url>
   </organization>
+
   <scm>
     <url>https://github.com/opengeospatial/ets-wms13</url>    
     <connection>scm:git:https://github.com/opengeospatial/ets-wms13.git</connection>    
     <developerConnection>scm:git:git@github.com:opengeospatial/ets-wms13.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
+
   <issueManagement>
     <system>GitHub Issue Tracker</system>
     <url>https://github.com/opengeospatial/ets-wms13/issues</url>
   </issueManagement>
+
   <developers>
     <developer>
       <name>D. Stenger</name>
@@ -49,7 +51,7 @@
     <spec-version>1.3.0</spec-version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm:ssZ</maven.build.timestamp.format>
-    <teamengine.version>4.9</teamengine.version>
+    <teamengine.version>4.10</teamengine.version>
   </properties>
 
   <dependencies>
@@ -71,7 +73,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.5.1</version>
+        <version>3.6.0</version>
         <configuration>
           <source>1.8</source>
           <target>1.8</target>
@@ -88,7 +90,7 @@
               <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
             </manifest>
             <manifestEntries>
-              <!--<Build-Host>${hostname}</Build-Host>-->
+              <Build-Host>${hostname}</Build-Host>
               <Build-Time>${maven.build.timestamp}</Build-Time>
               <Build-Revision>${buildNumber}</Build-Revision>
             </manifestEntries>
@@ -131,6 +133,7 @@
           <descriptors>
             <descriptor>${basedir}/src/assembly/ctl.xml</descriptor>
             <descriptor>${basedir}/src/assembly/aio.xml</descriptor>
+            <descriptor>${basedir}/src/assembly/deps.xml</descriptor>
           </descriptors>
         </configuration>
         <executions>
@@ -189,6 +192,27 @@
       </resource>
     </resources>
   </build>
+
+  <profiles>
+    <profile>
+      <id>windows</id>
+      <activation>
+        <os><family>windows</family></os>
+      </activation>
+      <properties>
+        <hostname>${env.COMPUTERNAME}</hostname>
+      </properties>
+    </profile>
+    <profile>
+      <id>unix</id>
+      <activation>
+        <os><family>unix</family></os>
+      </activation>
+      <properties>
+        <hostname>${env.HOSTNAME}</hostname>
+      </properties>
+    </profile>
+  </profiles>
 
   <reporting>
     <plugins>
