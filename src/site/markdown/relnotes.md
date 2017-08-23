@@ -1,6 +1,11 @@
 WMS 1.3.0 Test Suite Release Notes
 ==================================
 
+1.23 (2017-08-23)
+------------------
+* [#50](https://github.com/opengeospatial/ets-wms13/issues/50) - Enable REST API
+* [#28](https://github.com/opengeospatial/ets-wms13/issues/28) - ServletException thrown when attempting to view test results containing non-XML entity
+
 1.22 (2017-05-10)
 ------------------
 * [#39](https://github.com/opengeospatial/ets-wms13/issues/39) - Extracting local names and prefixes
