@@ -12,3 +12,8 @@ release.properties
 
 .DS_Store
 */.DS_Store
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
