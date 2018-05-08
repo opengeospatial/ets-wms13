@@ -262,7 +262,7 @@
       </ctl:code>
    </ctl:test>
 
-   <ctl:test name="main:data-independent">
+   <ctl:test name="main:data-independent" isConformanceClass="true" isBasic="true">
       <ctl:param name="high-updatesequence"/>
       <ctl:param name="low-updatesequence"/>
       <ctl:context>WMS_Capabilities element</ctl:context>
@@ -314,7 +314,7 @@
       </ctl:code>
    </ctl:test>
 
-   <ctl:test name="main:data-preconditions">
+   <ctl:test name="main:data-preconditions" isConformanceClass="true" isBasic="true">
       <ctl:param name="raster_elevation"/>
       <ctl:param name="time"/>
       <ctl:context>Capabilities XML</ctl:context>

@@ -17,7 +17,7 @@
  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 >
 
-   <ctl:test name="basic:basic">
+   <ctl:test name="basic:basic" isConformanceClass="true" isBasic="true">
       <ctl:param name="is-interactive-enabled"/>
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>Basic request behaves properly.</ctl:assertion>

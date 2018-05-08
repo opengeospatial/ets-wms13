@@ -17,7 +17,7 @@
  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 >
 
-   <ctl:test name="raster_elevation:raster_elevation">
+   <ctl:test name="raster_elevation:raster_elevation" isConformanceClass="true">
       <ctl:context>WMS_Capabilities element</ctl:context>
       <ctl:assertion>Raster elevation request behaves properly.</ctl:assertion>
       <ctl:code>
