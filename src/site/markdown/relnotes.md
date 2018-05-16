@@ -1,6 +1,11 @@
 WMS 1.3.0 Test Suite Release Notes
 ==================================
 
+1.24 (2018-05-16)
+------------------
+* [#48](https://github.com/opengeospatial/ets-wms13/issues/48) - Update CTL with better information about conformance classes
+* [#52](https://github.com/opengeospatial/ets-wms13/issues/52) - Cannot view the CTL test of a test case from current session result
+
 1.23 (2017-08-23)
 ------------------
 * [#50](https://github.com/opengeospatial/ets-wms13/issues/50) - Enable REST API
