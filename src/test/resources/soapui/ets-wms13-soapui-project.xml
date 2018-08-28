@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="1476c0be-8f92-4fc1-9925-9543b4950036" activeEnvironment="Default environment" name="TEAM Engine" resourceRoot="" soapui-version="5.4.0" abortOnError="false" runType="SEQUENTIAL" encryptionMode="Not encrypted" updated="2.3.0 2018-03-06T16:28:42Z" xmlns:con="http://eviware.com/soapui/config">
+<con:soapui-project id="1476c0be-8f92-4fc1-9925-9543b4950036" activeEnvironment="Default" name="TEAM Engine" resourceRoot="" soapui-version="5.4.0" abortOnError="false" runType="SEQUENTIAL" encryptionMode="Not encrypted" updated="2.3.0 2018-03-06T16:28:42Z" xmlns:con="http://eviware.com/soapui/config">
   <con:settings/>
   <con:testSuite id="c6ce07d7-2e98-4b79-8b92-044b2687a974" name="WMS 1.3">
     <con:settings/>
@@ -266,7 +266,7 @@ declare namespace cite="http://cite.opengeospatial.org/";
     </con:property>
     <con:property>
       <con:name>iut</con:name>
-      <con:value>http://cite.deegree.org/deegree-webservices-3.4-RC3/services/wms130?service=WMS&amp;request=GetCapabilities</con:value>
+      <con:value>http://cite.deegree.org/deegree-webservices-3.4.0/services/wms130?service=WMS&amp;request=GetCapabilities</con:value>
     </con:property>
     <con:property>
       <con:name>tests.passed</con:name>
