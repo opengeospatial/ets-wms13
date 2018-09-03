@@ -14,6 +14,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.Source;
 
+import org.apache.commons.io.FilenameUtils;
 import org.w3c.dom.Document;
 
 import com.occamlab.te.SetupOptions;
@@ -63,7 +64,7 @@ public class CtlController implements TestSuiteController {
     public static void main(String[] args) throws Exception {
         File propsFile;
         if (args.length == 0) {
-            propsFile = new File(System.getProperty("user.home"), "test-run-props.xml");
+            propsFile = new File(FilenameUtils.normalize(System.getProperty("user.home")), "test-run-props.xml");
         } else {
             String xmlProps = args[0];
             propsFile = (xmlProps.startsWith("file:")) ? new File(URI.create(xmlProps)) : new File(xmlProps);
@@ -72,6 +73,11 @@ public class CtlController implements TestSuiteController {
             throw new IllegalArgumentException("Test run arguments not found at " + propsFile);
         }
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        // This is the PRIMARY defense. If DTDs (doctypes) are disallowed, almost all XML entity attacks are prevented
+        // Xerces 2 only - http://xerces.apache.org/xerces2-j/features.html#disallow-doctype-decl
+        String FEATURE = "http://apache.org/xml/features/disallow-doctype-decl";
+        dbf.setFeature(FEATURE, true);
+
         DocumentBuilder db = dbf.newDocumentBuilder();
         Document testRunArgs = db.parse(propsFile);
         TestSuiteController controller = new CtlController();
