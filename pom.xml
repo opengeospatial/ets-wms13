@@ -52,6 +52,12 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm:ssZ</maven.build.timestamp.format>
     <teamengine.version>4.10</teamengine.version>
+    <soapui.teamengine.endpoint>http://cite.opengeospatial.org/te2</soapui.teamengine.endpoint>
+    <soapui.ets.version>1.24</soapui.ets.version>
+    <soapui.iut>http://cite.deegree.org/deegree-webservices-3.4-RC3/services/wms130?service=WMS&amp;request=GetCapabilities</soapui.iut>
+    <soapui.tests.passed>207</soapui.tests.passed>
+    <soapui.tests.skipped>0</soapui.tests.skipped>
+    <soapui.tests.failed>0</soapui.tests.failed>
   </properties>
 
   <dependencies>
@@ -189,6 +195,31 @@
           <scmBranch>gh-pages</scmBranch>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>com.smartbear.soapui</groupId>
+        <artifactId>soapui-maven-plugin</artifactId>
+        <version>5.4.0</version>
+        <dependencies>
+          <dependency>
+            <groupId>com.jgoodies</groupId>
+            <artifactId>forms</artifactId>
+            <version>1.0.7</version>
+          </dependency>
+        </dependencies>
+        <configuration>
+          <projectFile>src/test/resources/soapui/ets-wms13-soapui-project.xml</projectFile>
+          <junitReport>true</junitReport>
+          <testFailIgnore>true</testFailIgnore>
+          <projectProperties>
+            <value>teamengine.endpoint=${soapui.teamengine.endpoint}</value>
+            <value>ets.version=${soapui.ets.version}</value>
+            <value>iut=${soapui.iut}</value>
+            <value>tests.passed=${soapui.tests.passed}</value>
+            <value>tests.skipped=${soapui.tests.skipped}</value>
+            <value>tests.failed=${soapui.tests.failed}</value>
+          </projectProperties>
+        </configuration>
+      </plugin>
     </plugins>
 
     <resources>
@@ -274,6 +305,13 @@
       </plugin>  
     </plugins>
   </reporting>
+  
+  <pluginRepositories>
+    <pluginRepository>
+      <id>smartbear-sweden-plugin-repository</id>
+      <url>http://www.soapui.org/repository/maven2/</url>
+    </pluginRepository>
+  </pluginRepositories>
 
   <distributionManagement>
     <repository>
