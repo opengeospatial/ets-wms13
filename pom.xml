@@ -208,6 +208,7 @@
         </dependencies>
         <configuration>
           <projectFile>src/test/resources/soapui/ets-wms13-soapui-project.xml</projectFile>
+          <settingsFile>src/test/resources/soapui/ets-wms13-soapui-settings.xml</settingsFile>
           <junitReport>true</junitReport>
           <testFailIgnore>true</testFailIgnore>
           <projectProperties>
