@@ -6,7 +6,7 @@
     <entry key="updatesequence">auto</entry>
     <entry key="high-updatesequence"></entry>
     <entry key="low-updatesequence"></entry>
-    <entry key="basic">false</entry>
+    <entry key="basic">basic</entry>
     <entry key="queryable">false</entry>
     <entry key="raster_elevation">false</entry>
     <entry key="vector_elevation">false</entry>
