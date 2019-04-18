@@ -62,6 +62,9 @@ public class TestRunArguments {
         if (null == args.getProperty(WMS13.UPDATESEQ)) {
             args.setProperty(WMS13.UPDATESEQ, "auto");
         }
+        if (null == args.getProperty(WMS13.BASIC)) {
+          args.setProperty(WMS13.BASIC, "basic");
+      }
         return args;
     }
 

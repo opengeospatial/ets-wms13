@@ -19,6 +19,8 @@ public class WMS13 {
     public static final String HIGH_UPDATESEQ = "high-updatesequence";
     /** A version that is lower than the latest version. */
     public static final String LOW_UPDATESEQ = "low-updatesequence";
+    /** Run tests for <strong>Basic WMS</strong> conformance (Boolean) */
+    public static final String BASIC = "basic";
     /** Run tests for <strong>Queryable WMS</strong> conformance (Boolean) */
     public static final String QUERYABLE = "queryable";
     /** Run tests for the elevation dimension using raster data (Boolean). */
