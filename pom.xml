@@ -53,8 +53,8 @@
     <maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm:ssZ</maven.build.timestamp.format>
     <teamengine.version>4.10</teamengine.version>
     <soapui.test.fail.ignore>true</soapui.test.fail.ignore>
-    <soapui.teamengine.endpoint>http://cite.opengeospatial.org/te2</soapui.teamengine.endpoint>
-    <soapui.ets.version>1.24</soapui.ets.version>
+    <soapui.teamengine.endpoint>http://localhost:8081/teamengine</soapui.teamengine.endpoint>
+    <soapui.ets.version>${project.version}</soapui.ets.version>
     <soapui.iut>http://cite.deegree.org/deegree-webservices-3.4.5/services/wms130?service=WMS&amp;request=GetCapabilities</soapui.iut>
     <soapui.tests.passed>207</soapui.tests.passed>
     <soapui.tests.skipped>0</soapui.tests.skipped>
