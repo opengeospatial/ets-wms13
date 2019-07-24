@@ -52,14 +52,13 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm:ssZ</maven.build.timestamp.format>
     <teamengine.version>4.10</teamengine.version>
-    <soapui.test.fail.ignore>true</soapui.test.fail.ignore>
+    <soapui.test.fail.ignore>false</soapui.test.fail.ignore>
     <soapui.teamengine.endpoint>http://localhost:8081/teamengine</soapui.teamengine.endpoint>
-    <soapui.ets.version>${project.version}</soapui.ets.version>
     <soapui.iut>http://cite.deegree.org/deegree-webservices-3.4.5/services/wms130?service=WMS&amp;request=GetCapabilities</soapui.iut>
     <soapui.tests.passed>218</soapui.tests.passed>
     <soapui.tests.skipped>0</soapui.tests.skipped>
     <soapui.tests.failed>0</soapui.tests.failed>
-    <docker.teamengine.version>5.3</docker.teamengine.version>
+    <docker.teamengine.version>5.4</docker.teamengine.version>
   </properties>
 
   <dependencies>
@@ -206,7 +205,7 @@
       <plugin>
         <groupId>com.smartbear.soapui</groupId>
         <artifactId>soapui-maven-plugin</artifactId>
-        <version>5.4.0</version>
+        <version>5.5.0</version>
         <dependencies>
           <dependency>
             <groupId>com.jgoodies</groupId>
@@ -222,7 +221,6 @@
           <testFailIgnore>${soapui.test.fail.ignore}</testFailIgnore>
           <projectProperties>
             <value>teamengine.endpoint=${soapui.teamengine.endpoint}</value>
-            <value>ets.version=${soapui.ets.version}</value>
             <value>iut=${soapui.iut}</value>
             <value>tests.passed=${soapui.tests.passed}</value>
             <value>tests.skipped=${soapui.tests.skipped}</value>
