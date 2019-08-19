@@ -51,7 +51,7 @@
           <con:settings>
             <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
           </con:settings>
-          <con:endpoint>${#Project#teamengine.endpoint}/rest/suites/wms/</con:endpoint>
+          <con:endpoint>${#Project#teamengine.endpoint}/rest/suites/wms13/</con:endpoint>
           <con:request/>
           <con:assertion type="Valid HTTP Status Codes" id="0b7f5046-5ac7-41d0-829e-17315ac969ba" name="Valid HTTP Status Codes">
             <con:settings/>
@@ -81,7 +81,7 @@
           <con:settings>
             <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Accept" value="application/xml" xmlns="http://eviware.com/soapui/config"/></con:setting>
           </con:settings>
-          <con:endpoint>${#Project#teamengine.endpoint}/rest/suites/wms/run</con:endpoint>
+          <con:endpoint>${#Project#teamengine.endpoint}/rest/suites/wms13/run</con:endpoint>
           <con:request/>
           <con:assertion type="Valid HTTP Status Codes" id="0b7f5046-5ac7-41d0-829e-17315ac969ba" name="Valid HTTP Status Codes">
             <con:settings/>
@@ -125,7 +125,7 @@ assert headers != null &amp;&amp; headers[0] != null &amp;&amp; headers[0].index
           <con:settings>
             <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Accept" value="application/zip" xmlns="http://eviware.com/soapui/config"/></con:setting>
           </con:settings>
-          <con:endpoint>${#Project#teamengine.endpoint}/rest/suites/wms/run</con:endpoint>
+          <con:endpoint>${#Project#teamengine.endpoint}/rest/suites/wms13/run</con:endpoint>
           <con:request/>
           <con:assertion type="Valid HTTP Status Codes" id="0b7f5046-5ac7-41d0-829e-17315ac969ba" name="Valid HTTP Status Codes">
             <con:settings/>
@@ -169,7 +169,7 @@ assert headers != null &amp;&amp; headers[0] != null &amp;&amp; headers[0].index
           <con:settings>
             <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Accept" value="application/rdf+xml" xmlns="http://eviware.com/soapui/config"/></con:setting>
           </con:settings>
-          <con:endpoint>${#Project#teamengine.endpoint}/rest/suites/wms/run</con:endpoint>
+          <con:endpoint>${#Project#teamengine.endpoint}/rest/suites/wms13/run</con:endpoint>
           <con:request/>
           <con:assertion type="Valid HTTP Status Codes" id="0b7f5046-5ac7-41d0-829e-17315ac969ba" name="Valid HTTP Status Codes">
             <con:settings/>
