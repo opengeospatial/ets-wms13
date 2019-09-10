@@ -47,11 +47,11 @@
   </developers>
 
   <properties>
-    <ets-code>wms</ets-code>
+    <ets-code>wms13</ets-code>
     <spec-version>1.3.0</spec-version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm:ssZ</maven.build.timestamp.format>
-    <teamengine.version>4.10</teamengine.version>
+    <teamengine.version>5.4</teamengine.version>
     <soapui.test.fail.ignore>false</soapui.test.fail.ignore>
     <soapui.teamengine.endpoint>http://localhost:8081/teamengine</soapui.teamengine.endpoint>
     <soapui.iut>http://cite.deegree.org/deegree-webservices-3.4.5/services/wms130?service=WMS&amp;request=GetCapabilities</soapui.iut>
