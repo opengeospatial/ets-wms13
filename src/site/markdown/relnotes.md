@@ -1,6 +1,17 @@
 WMS 1.3.0 Test Suite Release Notes
 ==================================
 
+1.25 (2019-12-09)
+------------------
+* [#65](https://github.com/opengeospatial/ets-wms13/issues/65) - Update version of teamengine-spi-ctl
+* [#69](https://github.com/opengeospatial/ets-wms13/issues/69) - REST API: URI of test suite is equal to WMS 1.1 test suite
+* [#73](https://github.com/opengeospatial/ets-wms13/pull/73) - Updated the maven dependency in pom.xml
+* [#68](https://github.com/opengeospatial/ets-wms13/issues/68) - Update tests to use TEAM Engine 5.4
+* [#54](https://github.com/opengeospatial/ets-wms13/issues/54) - Description of parameter basic in REST API documentation is missing
+* [#62](https://github.com/opengeospatial/ets-wms13/issues/62) - XPath seems to need use of braces
+* [#61](https://github.com/opengeospatial/ets-wms13/issues/61) - Introduce Dockerfile and Maven Docker plugin
+* [#56](https://github.com/opengeospatial/ets-wms13/issues/56) - Create SoapUI tests and integrate them into Maven and Jenkinsfile
+
 1.24 (2018-05-16)
 ------------------
 * [#48](https://github.com/opengeospatial/ets-wms13/issues/48) - Update CTL with better information about conformance classes
