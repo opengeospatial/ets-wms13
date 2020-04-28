@@ -1036,9 +1036,11 @@
               <ctl:param name="BbOx">
                 <xsl:value-of select="functions:encode($layer-info/LayerInfo/@bbox)"/>
               </ctl:param>
-              <ctl:param name="CrS">
-                <xsl:value-of select="functions:encode($layer-info/LayerInfo/@crs)"/>
-              </ctl:param>
+              <xsl:if test="not(contains(($layer-info/LayerInfo/@crs), 'AUTO2'))">
+                <ctl:param name="CrS">
+                  <xsl:value-of select="functions:encode($layer-info/LayerInfo/@crs)"/>
+                </ctl:param>
+              </xsl:if>
               <ctl:param name="WiDtH">
                 <xsl:value-of select="$layer-info/LayerInfo/@width"/>
               </ctl:param>
