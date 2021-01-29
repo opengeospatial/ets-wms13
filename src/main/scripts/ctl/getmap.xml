@@ -3309,7 +3309,7 @@
 
   <ctl:test name="getmap:no-version">
     <ctl:context>WMS_Capabilities element</ctl:context>
-    <ctl:assertion>When a GetMap request does not contain version, test expects exception report.</ctl:assertion>
+    <ctl:assertion>When a GetMap request does not contain version, then the response contains exception report.</ctl:assertion>
     <ctl:comment/>
     <ctl:code>
       <xsl:variable name="layer" select="string(wms:Capability/descendant::wms:Layer[wms:Name and wms:BoundingBox][1]/wms:Name)"/>
