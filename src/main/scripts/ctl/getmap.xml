@@ -1391,7 +1391,7 @@
       <xsl:variable name="content-type" select="$response//header[functions:to-lowercase(@name) = 'content-type']" />
       <xsl:choose>
         <xsl:when test="contains($content-type, '/xml')">
-          <xsl:if test="not($response/response/content/ogc:ServiceExceptionReport/ogc:ServiceException[@code='InvalidFormat'])">
+          <xsl:if test="not($response/response/content/*[local-name()='ServiceExceptionReport']/*[local-name()='ServiceException'][@code='InvalidFormat'])">
             <ctl:message>[FAIL] Expected ServiceException with code 'InvalidFormat'.</ctl:message>
             <ctl:fail />
           </xsl:if>
