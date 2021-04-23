@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite>
+	<title>WMS 1.3 Conformance Test Suite</title>
+	<description>
+	    Verifies that a Web Map Service (WMS) implementation conforms to the relevant specifications:
+		OpenGIS Web Map Server Implementation Specification, Version 1.3.0 [OGC 06-042]
+		The test run arguments are summarized in the following table. The obligation
+		descriptor can have the following values: M (mandatory), O (optional), or C (conditional).
+	</description>
+	<testrunarguments>
+		<testrunargument>
+			<name>capabilities-url</name>
+			<valuedomain>URI</valuedomain>
+			<obligation>M</obligation>
+			<description>An absolute URI that refers to an XML representation of the service capabilities document.
+				This document does not need to be obtained from the service under test (SUT), but it must
+				describe the implementation under test (IUT). Ampersand ('&amp;') characters appearing within
+				a query parameter value must be percent-encoded as %26.</description>
+		</testrunargument>
+		<testrunargument>
+			<name>updatesequence</name>
+			<valuedomain>Enumeration: "manual" | "auto" (default)</valuedomain>
+			<obligation>O</obligation>
+			<description>Indicates how to test versioning of the capabilities document.</description>
+		</testrunargument>
+		<testrunargument>
+			<name>low-updatesequence</name>
+			<valuedomain>String</valuedomain>
+			<obligation>C (required if updatesequence="manual")</obligation>
+			<description>A version that is lower than the current updateSequence value.</description>
+		</testrunargument>
+		<testrunargument>
+			<name>high-updatesequence</name>
+			<valuedomain>String</valuedomain>
+			<obligation>C (required if updatesequence="manual")</obligation>
+			<description>A version that is higher than the current updateSequence value.</description>
+		</testrunargument>
+		<testrunargument>
+			<name>basic</name>
+			<valuedomain>Boolean (default: true)</valuedomain>
+			<obligation>O</obligation>
+			<description>The Basic conformance class tests functionality that
+				depends on the CITE dataset. This option is required for certification.</description>
+		</testrunargument>
+		<testrunargument>
+			<name>queryable</name>
+			<valuedomain>Boolean (default: false)</valuedomain>
+			<obligation>O</obligation>
+			<description>
+				Verify that the IUT satisfies all requirements of the Queryable WMS
+				conformance class.
+			</description>
+		</testrunargument>
+		<testrunargument>
+			<name>raster_elevation</name>
+			<valuedomain>Boolean (default: false)</valuedomain>
+			<obligation>O</obligation>
+			<description>Run tests for the elevation dimension using the cite:Terrain raster dataset.</description>
+		</testrunargument>
+		<testrunargument>
+			<name>vector_elevation</name>
+			<valuedomain>Boolean (default: false)</valuedomain>
+			<obligation>O</obligation>
+			<description>Run tests for the elevation dimension using the cite:Lakes vector dataset.</description>
+		</testrunargument>
+		<testrunargument>
+			<name>time</name>
+			<valuedomain>Boolean (default: false)</valuedomain>
+			<obligation>O</obligation>
+			<description>Indicates whether to test the time dimension using the cite:Autos dataset.</description>
+		</testrunargument>
+		<testrunargument>
+			<name></name>
+			<valuedomain>Boolean (default: false)</valuedomain>
+			<obligation>O</obligation>
+			<description>Indicates whether to runs tests that apply to recommended constraints.</description>
+		</testrunargument>
+	</testrunarguments>
+</testsuite>
