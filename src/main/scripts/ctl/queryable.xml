@@ -252,7 +252,7 @@
          </xsl:variable>
          <xsl:for-each select="$titles/title">
             <xsl:variable name="title" select="."/>
-            <xsl:variable name="layer" select="$root-layer/descendant-or-self::wms:Layer[wms:Title = $title]"/>
+            <xsl:variable name="layer" select="$root-layer/descendant-or-self::wms:Layer[wms:Name = $title]"/>
             <xsl:choose>
                <xsl:when test="not($layer/wms:Title)">
                   <ctl:message>Error: No layer titled <xsl:value-of select="$title"/> found.</ctl:message>
