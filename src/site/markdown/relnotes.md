@@ -1,6 +1,17 @@
 WMS 1.3.0 Test Suite Release Notes
 ==================================
 
+1.26 (2021-05-28)
+------------------
+* [#85](https://github.com/opengeospatial/ets-wms13/issues/85) - WMS 1.3.0 Compliance Test Failed Although the Response Contains the Required Code
+* [#80](https://github.com/opengeospatial/ets-wms13/issues/80) - GetMap request is not tested for mandatory version parameter
+* [#77](https://github.com/opengeospatial/ets-wms13/issues/77) - Issues about the Compliance Testing
+* [#74](https://github.com/opengeospatial/ets-wms13/issues/74) - Ignore CRS with AUTO2 prefixes
+* [#81](https://github.com/opengeospatial/ets-wms13/issues/81) - Add template to get an XML/JSON response via rest endpoint
+* [#88](https://github.com/opengeospatial/ets-wms13/pull/88) - Set Docker TEAM Engine version to 5.4.1
+* [#79](https://github.com/opengeospatial/ets-wms13/pull/79) - Bump junit from 4.12 to 4.13.1
+* [#86](https://github.com/opengeospatial/ets-wms13/pull/86) - Added header for soapui test.
+
 1.25 (2019-12-09)
 ------------------
 * [#65](https://github.com/opengeospatial/ets-wms13/issues/65) - Update version of teamengine-spi-ctl
