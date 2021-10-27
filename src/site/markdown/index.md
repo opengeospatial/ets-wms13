@@ -112,38 +112,37 @@ depths have been defined. To support testing the time dimension, point
 geometries that represent the locations of automobiles along the roads at 5
 second increments during a one minute interval have been defined.  
   
-The features are organized into layers as shown in table below. The layers may
-be named in any fashion, but must be titled exactly as shown in the table.  
+The features are organized into layers as shown in table below.
 
  <table border="1">
         <caption align="bottom">Layer titles and features</caption>
-        <tr><td valign="top"><b>Layer Title</b></td><td valign="top"><b>Type</b></td>
+        <tr><td valign="top"><b>Layer Name</b></td><td valign="top"><b>Layer Title</b></td><td valign="top"><b>Type</b></td>
             <td><b>Features Contained</b></td></tr>
-        <tr><td valign="top">cite:Autos</td><td valign="top">point</td>
+        <tr><td valign="top">Autos</td><td valign="top">cite:Autos</td><td valign="top">point</td>
             <td>Contains point features representing automobiles along the roads.  Required only for the time option.</td></tr>
-        <tr><td valign="top">cite:BasicPolygons</td><td valign="top">polygon</td>
+        <tr><td valign="top">BasicPolygons</td><td valign="top">cite:BasicPolygons</td><td valign="top">polygon</td>
             <td>Contains all the features shown in figure 3.</td></tr>
-        <tr><td valign="top">cite:Bridges</td><td valign="top">point</td>
+        <tr><td valign="top">Bridges</td><td valign="top">cite:Bridges</td><td valign="top">point</td>
             <td>Contains Cam Bridge.</td></tr>
-        <tr><td valign="top">cite:Buildings</td><td valign="top">polygon</td>
+        <tr><td valign="top">Buildings</td><td valign="top">cite:Buildings</td><td valign="top">polygon</td>
             <td>Contains the two buildings along Main Street.</td></tr>
-        <tr><td valign="top">cite:DividedRoutes</td><td valign="top">line</td>
+        <tr><td valign="top">DividedRoutes</td><td valign="top">cite:DividedRoutes</td><td valign="top">line</td>
             <td>Contains both lanes of Route 75.</td></tr>
-        <tr><td valign="top">cite:Forests</td><td valign="top">polygon</td>
+        <tr><td valign="top">Forests</td><td valign="top">cite:Forests</td><td valign="top">polygon</td>
             <td>Contains the State Forest polygon.</td></tr>
-        <tr><td valign="top">cite:Lakes</td><td valign="top">polygon</td>
+        <tr><td valign="top">Lakes</td><td valign="top">cite:Lakes</td><td valign="top">polygon</td>
             <td>Contains Blue Lake.  For the vector elevation option, it also contains polygons representing the edge of the lake at other depths.</td></tr>
-        <tr><td valign="top">cite:MapNeatline</td><td valign="top">line</td>
+        <tr><td valign="top">MapNeatline</td><td valign="top">cite:MapNeatline</td><td valign="top">line</td>
             <td>Contains the border surrounding the Blue Lake vicinity.</td></tr>
-        <tr><td valign="top">cite:NamedPlaces</td><td valign="top">polygon</td>
+        <tr><td valign="top">NamedPlaces</td><td valign="top">cite:NamedPlaces</td><td valign="top">polygon</td>
             <td>Contains Ashton and Goose Island.</td></tr>
-        <tr><td valign="top">cite:Ponds</td><td valign="top">polygon</td>
+        <tr><td valign="top">Ponds</td><td valign="top">cite:Ponds</td><td valign="top">polygon</td>
             <td>Contains both pools of Stock Pond.</td></tr>
-        <tr><td valign="top">cite:RoadSegments</td><td valign="top">line</td>
+        <tr><td valign="top">RoadSegments</td><td valign="top">cite:RoadSegments</td><td valign="top">line</td>
             <td>Contains all the sections of Route 5, Main Street, and the dirt road.</td></tr>
-        <tr><td valign="top">cite:Streams</td><td valign="top">line</td>
+        <tr><td valign="top">Streams</td><td valign="top">cite:Streams</td><td valign="top">line</td>
             <td>Contains Cam Stream and the unnamed stream south of Blue Lake.</td></tr>
-        <tr><td valign="top">cite:Terrain</td><td valign="top">raster</td>
+        <tr><td valign="top">Terrain</td><td valign="top">cite:Terrain</td><td valign="top">raster</td>
             <td>Contains raster terrain data.  Required only for the raster elevation option.</td></tr>
 </table>
 
