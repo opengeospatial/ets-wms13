@@ -1,6 +1,10 @@
 WMS 1.3.0 Test Suite Release Notes
 ==================================
 
+1.27 (2021-11-11)
+------------------
+* [#93](https://github.com/opengeospatial/ets-wms13/issues/93) - Update the scripts to remove cite: prefix from the Layer Names
+
 1.26 (2021-05-28)
 ------------------
 * [#85](https://github.com/opengeospatial/ets-wms13/issues/85) - WMS 1.3.0 Compliance Test Failed Although the Response Contains the Required Code
