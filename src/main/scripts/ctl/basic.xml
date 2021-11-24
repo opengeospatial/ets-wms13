@@ -361,7 +361,7 @@
                <ctl:param name="WiDtH">200</ctl:param>
                <ctl:param name="StYlEs"/>
                <ctl:param name="LaYeRs">
-                  <xsl:value-of select="functions:encode(string(wms:Capability//wms:Layer[wms:Name='cite:Lakes']/wms:Name))"/>
+                  <xsl:value-of select="functions:encode(string(wms:Capability//wms:Layer[wms:Name='Lakes' or wms:Name = 'cite:Lakes']/wms:Name))"/>
                </ctl:param>
                <ctl:param name="ReQuEsT">GetMap</ctl:param>
                <ctl:param name="BbOx">0,-0.0020,0.0040,0</ctl:param>

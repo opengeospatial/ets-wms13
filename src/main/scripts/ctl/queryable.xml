@@ -244,23 +244,23 @@
       <ctl:link title="Test requirements">docs/wms/1.3.0/#requirements</ctl:link>
       <ctl:code>
          <xsl:variable name="root-layer" select="wms:Capability/wms:Layer"/>
-         <xsl:variable name="titles">
-            <title>cite:BasicPolygons</title>
-            <title>cite:Forests</title>
-            <title>cite:Lakes</title>
-            <title>cite:NamedPlaces</title>
+         <xsl:variable name="names">
+            <name>BasicPolygons</name>
+            <name>Forests</name>
+            <name>Lakes</name>
+            <name>NamedPlaces</name>
          </xsl:variable>
-         <xsl:for-each select="$titles/title">
-            <xsl:variable name="title" select="."/>
-            <xsl:variable name="layer" select="$root-layer/descendant-or-self::wms:Layer[wms:Name = $title]"/>
+         <xsl:for-each select="$names/name">
+            <xsl:variable name="name" select="."/>
+            <xsl:variable name="layer" select="$root-layer/descendant-or-self::wms:Layer[wms:Name = $name or wms:Name = cite: + $name]"/>
             <xsl:choose>
-               <xsl:when test="not($layer/wms:Title)">
-                  <ctl:message>Error: No layer titled <xsl:value-of select="$title"/> found.</ctl:message>
+               <xsl:when test="not($layer/wms:Name)">
+                  <ctl:message>Error: No layer named <xsl:value-of select="$name"/> found.</ctl:message>
                   <ctl:fail/>
                </xsl:when>
                <xsl:otherwise>
                   <xsl:if test="functions:boolean-as-integer($layer/@queryable) = 0">
-                     <ctl:message>Error: Layer titled <xsl:value-of select="$title"/> must be queryable.</ctl:message>
+                     <ctl:message>Error: Layer named <xsl:value-of select="$name"/> must be queryable.</ctl:message>
                      <ctl:fail/>
                   </xsl:if>
                </xsl:otherwise>
