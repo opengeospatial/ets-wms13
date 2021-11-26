@@ -1,6 +1,10 @@
 WMS 1.3.0 Test Suite Release Notes
 ==================================
 
+1.28 (2021-11-26)
+------------------
+* [#95](https://github.com/opengeospatial/ets-wms13/issues/95) - Tests basic:transparent-true and queryable:std-data-queryable are failing when non mandatory cite prefix is missing in layer name
+
 1.27 (2021-11-11)
 ------------------
 * [#93](https://github.com/opengeospatial/ets-wms13/issues/93) - Update the scripts to remove cite: prefix from the Layer Names
