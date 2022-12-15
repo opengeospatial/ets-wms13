@@ -161,6 +161,12 @@
                      </td>
                      <td align="left">RECOMMENDATIONS - Test functionality which is recommended in the specification.</td>
                   </tr>
+                  <tr>
+                     <td align="center">
+                        <input name="skip-vector-tests" type="checkbox" value="skip-vector-tests"/>
+                     </td>
+                     <td align="left">Skip vector tests.</td>
+                  </tr>
                </table>
             </blockquote>
             <br/>
@@ -179,6 +185,7 @@
       <ctl:param name="vector_elevation"/>
       <ctl:param name="time"/>
       <ctl:param name="recommended"/>
+      <ctl:param name="skip-vector-tests"/>
       <ctl:assertion>The implementation under test complies with the WMS 1.3.0 specification.</ctl:assertion>
       <ctl:code>
          <xsl:variable name="capabilities">
@@ -235,6 +242,7 @@
             <xsl:if test="$basic='basic'">
                <ctl:call-test name="basic:basic">
                   <ctl:with-param name="is-interactive-enabled" select="'yes'"/>
+                  <ctl:with-param name="skip-vector-tests" select="$skip-vector-tests"/>
                </ctl:call-test>
             </xsl:if>
 

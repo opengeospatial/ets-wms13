@@ -24,7 +24,7 @@
       <ctl:code>
          <ctl:call-test name="basic:options-requirements"/>
          <ctl:call-test name="basic:getmap"/>
-         <xsl:if test="$is-interactive-enabled='yes'">
+         <xsl:if test="$is-interactive-enabled='yes' and !$skip-vector-tests">
             <ctl:call-test name="basic:interactive"/>
          </xsl:if>
       </ctl:code>
