@@ -165,7 +165,7 @@
                      <td align="center">
                         <input name="skip-vector-tests" type="checkbox" value="skip-vector-tests"/>
                      </td>
-                     <td align="left">Skip vector tests.</td>
+                     <td align="left">Skip basic tests using vector layers.</td>
                   </tr>
                </table>
             </blockquote>
@@ -236,6 +236,7 @@
                <ctl:call-test name="main:data-preconditions">
                   <ctl:with-param name="raster_elevation" select="$raster_elevation"/>
                   <ctl:with-param name="time" select="$time"/>
+                  <ctl:with-param name="skip-vector-tests" select="$skip-vector-tests"/>
                </ctl:call-test>
             </xsl:if>
 
@@ -323,6 +324,7 @@
    </ctl:test>
 
    <ctl:test name="main:data-preconditions" isConformanceClass="true" isBasic="true">
+      <ctl:param name="skip-vector-tests"/>
       <ctl:param name="raster_elevation"/>
       <ctl:param name="time"/>
       <ctl:context>Capabilities XML</ctl:context>
@@ -331,17 +333,19 @@
       <ctl:code>
          <xsl:variable name="root-layer" select="wms:Capability/wms:Layer"/>
          <xsl:variable name="titles">
-            <title>cite:BasicPolygons</title>
-            <title>cite:Bridges</title>
-            <title>cite:Buildings</title>
-            <title>cite:DividedRoutes</title>
-            <title>cite:Forests</title>
-            <title>cite:Lakes</title>
-            <title>cite:MapNeatline</title>
-            <title>cite:NamedPlaces</title>
-            <title>cite:Ponds</title>
-            <title>cite:RoadSegments</title>
-            <title>cite:Streams</title>
+         <xsl:if test="not($skip-vector-tests='skip-vector-tests')">
+                <title>cite:BasicPolygons</title>
+                <title>cite:Bridges</title>
+                <title>cite:Buildings</title>
+                <title>cite:DividedRoutes</title>
+                <title>cite:Forests</title>
+                <title>cite:Lakes</title>
+                <title>cite:MapNeatline</title>
+                <title>cite:NamedPlaces</title>
+                <title>cite:Ponds</title>
+                <title>cite:RoadSegments</title>
+                <title>cite:Streams</title>
+            </xsl:if>
             <xsl:if test="$raster_elevation='raster_elevation'">
                <title>cite:Terrain</title>
             </xsl:if>
