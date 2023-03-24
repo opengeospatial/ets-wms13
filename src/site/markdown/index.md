@@ -73,7 +73,9 @@ refers to. This test suite uses the on-line version.
 
 ## Test Dataset Description
 
-[Download the test dataset](data-wms-1.3.0.zip)
+If your WMS server supports vector files as input, then [download this test dataset of Shapefiles](data-wms-1.3.0.zip).
+
+If your WMS server only supports raster files as input, then [download this alternative test dataset of PNG worldfiles](png-worldfiles-wms-1.3.0.zip).
 
 The majority of the dataset is based on the [Conformance Test Guidelines for
 OpenGIS Simple Features Specification for SQL, Revision 1.0](http://portal.opengeospatial.org/files?artifact_id=7587&amp;version=2). This
