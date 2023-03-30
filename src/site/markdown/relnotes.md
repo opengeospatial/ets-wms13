@@ -1,6 +1,12 @@
 WMS 1.3.0 Test Suite Release Notes
 ==================================
 
+1.29 (2023-03-30)
+------------------
+* [#12](https://github.com/opengeospatial/ets-wms13/issues/12) - Develop test for a WMS 1.3 raster conformance class
+* [#100](https://github.com/opengeospatial/ets-wms13/pull/100) - Add credentials to SoapUI project
+* [#89](https://github.com/opengeospatial/ets-wms13/pull/89) - Bump commons-io from 2.5 to 2.7
+
 1.28 (2021-11-26)
 ------------------
 * [#95](https://github.com/opengeospatial/ets-wms13/issues/95) - Tests basic:transparent-true and queryable:std-data-queryable are failing when non mandatory cite prefix is missing in layer name
