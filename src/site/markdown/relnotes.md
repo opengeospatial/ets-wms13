@@ -1,6 +1,10 @@
 WMS 1.3.0 Test Suite Release Notes
 ==================================
 
+1.30 (2023-07-28)
+------------------
+* [#107](https://github.com/opengeospatial/ets-wms13/pull/107) - Introduce limit of 10 for tested CRS
+
 1.29 (2023-03-30)
 ------------------
 * [#12](https://github.com/opengeospatial/ets-wms13/issues/12) - Develop test for a WMS 1.3 raster conformance class
