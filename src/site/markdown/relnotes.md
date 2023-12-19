@@ -1,6 +1,11 @@
 WMS 1.3.0 Test Suite Release Notes
 ==================================
 
+1.31 (2023-12-19)
+------------------
+* [#108](https://github.com/opengeospatial/ets-wms13/pull/108) - Fix test queryable:std-data-queryable
+* [#109](https://github.com/opengeospatial/ets-wms13/pull/109) - Update TEAM Engine dependencies to version 5.7
+
 1.30 (2023-07-28)
 ------------------
 * [#107](https://github.com/opengeospatial/ets-wms13/pull/107) - Introduce limit of 10 for tested CRS
