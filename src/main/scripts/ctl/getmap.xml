@@ -876,7 +876,7 @@
     <ctl:comment/>
     <ctl:link title="WMS 1.3.0 section 7.3.3.5">http://cite.opengeospatial.org/OGCTestData/wms/1.3.0/spec/wms1_3.html#wmsops.getmap.params.crs</ctl:link>
     <ctl:code>
-      <xsl:variable name="crs" select="string((wms:Capability/descendant::wms:Layer[wms:Name][1]/ancestor::wms:Layer/wms:CRS)[1])"/>
+      <xsl:variable name="crs" select="string((wms:Capability/descendant::wms:Layer[wms:Name][1]/ancestor::wms:Layer/wms:CRS)[not(starts-with(., 'AUTO'))][1])"/>
       <xsl:choose>
         <xsl:when test="$crs = ''">
           <ctl:message>Error: No Named layers with a CRS inherited from a parent layer.</ctl:message>
