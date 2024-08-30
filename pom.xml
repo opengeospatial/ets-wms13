@@ -73,6 +73,12 @@
       <groupId>org.opengis.cite.teamengine</groupId>
       <artifactId>teamengine-spi-ctl</artifactId>
       <version>${teamengine.version}</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>junit</artifactId>
+          <groupId>junit</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
