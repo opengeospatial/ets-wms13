@@ -1,6 +1,11 @@
 WMS 1.3.0 Test Suite Release Notes
 ==================================
 
+1.32 (2024-08-30)
+------------------
+* [#112](https://github.com/opengeospatial/ets-wms13/issues/112) - OGC WMS 1.3.0 test fails for multiple CRS values in the test result for an INSPIRE View Service
+* [#98](https://github.com/opengeospatial/ets-wms13/issues/98) - Test GetMap crs-inherited does not handle AUTO correctly
+
 1.31 (2023-12-19)
 ------------------
 * [#108](https://github.com/opengeospatial/ets-wms13/pull/108) - Fix test queryable:std-data-queryable
