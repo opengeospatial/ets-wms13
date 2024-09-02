@@ -790,7 +790,7 @@
                      <ctl:param name="StYlEs"/>
                      <ctl:param name="ReQuEsT">GetMap</ctl:param>
                      <ctl:param name="TiMe">
-                        <xsl:value-of select="functions:encode(fn:tokenize(string($dimension), ',\s*')[contains(., '/current')][1])"/>
+                        <xsl:value-of select="functions:encode(concat(tokenize(string($dimension), ',\s*')[1], '/current'))"/>
                      </ctl:param>
                      <parsers:HTTPParser>
                         <parsers:parse>
