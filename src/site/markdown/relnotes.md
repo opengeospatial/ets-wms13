@@ -1,6 +1,10 @@
 WMS 1.3.0 Test Suite Release Notes
 ==================================
 
+1.33 (2024-09-26)
+------------------
+* [#113](https://github.com/opengeospatial/ets-wms13/issues/113) - Test time:time-current-interval finishes with status "Continue" when using TEAM Engine 5.7
+
 1.32 (2024-08-30)
 ------------------
 * [#112](https://github.com/opengeospatial/ets-wms13/issues/112) - OGC WMS 1.3.0 test fails for multiple CRS values in the test result for an INSPIRE View Service
