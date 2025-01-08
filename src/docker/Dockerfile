@@ -26,5 +26,7 @@ RUN cd /root/ && unzip -q ets-wms13-*-ctl.zip -d /root/te_base/scripts
 ADD maven/ets-wms13-*-deps.zip /root/
 RUN cd /root/ && unzip -q -o ets-wms13-*-deps.zip -d /usr/local/tomcat/webapps/teamengine/WEB-INF/lib
 
+RUN rm -R /root/te_base/scripts/note
+
 # run tomcat
 CMD ["catalina.sh", "run"]
