@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>ets-wms13</artifactId>
   <groupId>org.opengis.cite</groupId>
-  <version>1.31-SNAPSHOT</version>
+  <version>1.34-SNAPSHOT</version>
 
   <name>Conformance Test Suite - OGC Web Map Service 1.3.0</name>
   <description>Verifies conformance of implementations to OGC Web Map Service 1.3.0.</description>
@@ -51,16 +51,16 @@
     <spec-version>1.3.0</spec-version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm:ssZ</maven.build.timestamp.format>
-    <teamengine.version>5.4</teamengine.version>
+    <teamengine.version>5.7</teamengine.version>
     <soapui.test.fail.ignore>false</soapui.test.fail.ignore>
     <soapui.teamengine.endpoint>http://localhost:8081/teamengine</soapui.teamengine.endpoint>
     <soapui.teamengine.user>ogctest</soapui.teamengine.user>
     <soapui.teamengine.password>ogctest</soapui.teamengine.password>
-    <soapui.iut>https://cite.deegree.org/deegree-webservices-3.5.0/services/wms130?service=WMS&amp;request=GetCapabilities</soapui.iut>
+    <soapui.iut>https://cite.deegree.org/deegree-webservices-3.5.6/services/wms130?service=WMS&amp;request=GetCapabilities</soapui.iut>
     <soapui.tests.passed>220</soapui.tests.passed>
     <soapui.tests.skipped>0</soapui.tests.skipped>
     <soapui.tests.failed>0</soapui.tests.failed>
-    <docker.teamengine.version>6.0-SNAPSHOT</docker.teamengine.version>
+    <docker.teamengine.version>5.7</docker.teamengine.version>
   </properties>
 
   <dependencies>
@@ -73,6 +73,12 @@
       <groupId>org.opengis.cite.teamengine</groupId>
       <artifactId>teamengine-spi-ctl</artifactId>
       <version>${teamengine.version}</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>junit</artifactId>
+          <groupId>junit</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
@@ -309,6 +315,17 @@
           </artifactItems>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.sonatype.plugins</groupId>
+        <artifactId>nexus-staging-maven-plugin</artifactId>
+        <version>1.7.0</version>
+        <extensions>true</extensions>
+        <configuration>
+          <serverId>sonatype-nexus</serverId>
+          <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+          <autoReleaseAfterClose>true</autoReleaseAfterClose>
+        </configuration>
+      </plugin>
     </plugins>
 
     <resources>
@@ -470,10 +487,6 @@
   </pluginRepositories>
 
   <distributionManagement>
-    <repository>
-      <id>sonatype-nexus-staging</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-    </repository>
     <site>
       <id>site</id>
       <url>scm:git:git@github.com:opengeospatial/ets-wms13.git</url>
