@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.opengis.cite</groupId>
     <artifactId>ets-common</artifactId>
-    <version>14-SNAPSHOT</version>
+    <version>15-SNAPSHOT</version>
   </parent>
   
   <modelVersion>4.0.0</modelVersion>
@@ -75,13 +75,6 @@
     <dependency>
       <groupId>org.opengis.cite.teamengine</groupId>
       <artifactId>teamengine-spi-ctl</artifactId>
-      <version>${teamengine.version}</version>
-      <exclusions>
-        <exclusion>
-          <artifactId>junit</artifactId>
-          <groupId>junit</groupId>
-        </exclusion>
-      </exclusions>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
@@ -118,19 +111,9 @@
       <plugin>
         <groupId>com.smartbear.soapui</groupId>
         <artifactId>soapui-maven-plugin</artifactId>
-        <dependencies>
-          <dependency>
-            <groupId>com.jgoodies</groupId>
-            <artifactId>forms</artifactId>
-            <version>1.0.7</version>
-          </dependency>
-        </dependencies>
         <configuration>
           <projectFile>src/test/resources/soapui/ets-wms13-soapui-project.xml</projectFile>
           <settingsFile>src/test/resources/soapui/ets-wms13-soapui-settings.xml</settingsFile>
-          <outputFolder>${project.build.directory}/soapui</outputFolder>
-          <junitReport>true</junitReport>
-          <testFailIgnore>${soapui.test.fail.ignore}</testFailIgnore>
           <projectProperties>
             <value>teamengine.endpoint=${soapui.teamengine.endpoint}</value>
             <value>teamengine.user=${soapui.teamengine.user}</value>
