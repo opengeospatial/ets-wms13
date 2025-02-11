@@ -131,6 +131,9 @@
           </images>
         </configuration>
       </plugin>
+      <plugin>
+        <artifactId>maven-scm-publish-plugin</artifactId>
+      </plugin>
     </plugins>
 
     <resources>
