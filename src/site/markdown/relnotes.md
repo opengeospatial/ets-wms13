@@ -1,6 +1,13 @@
 WMS 1.3.0 Test Suite Release Notes
 ==================================
 
+1.34 (2025-03-04)
+------------------
+
+Attention: Java 17 and Tomcat 10.1 are required.
+
+* [#118](https://github.com/opengeospatial/ets-wms13/issues/118) - Migrate test suite to TEAM Engine 6 (Java 17)
+
 1.33 (2024-09-26)
 ------------------
 * [#113](https://github.com/opengeospatial/ets-wms13/issues/113) - Test time:time-current-interval finishes with status "Continue" when using TEAM Engine 5.7
