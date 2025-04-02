@@ -3,6 +3,7 @@ package org.opengis.cite.wms13;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -41,7 +42,7 @@ public class CtlController implements TestSuiteController {
 		try (InputStream is = getClass().getResourceAsStream("ets.properties")) {
 			this.etsProperties.load(is);
 			String mainScriptPath = etsProperties.getProperty("main-script");
-			File ctlFile = findScriptFile(URI.create(mainScriptPath));
+			Object ctlFile = findScriptFile(URI.create(mainScriptPath));
 			setupOpts.addSource(ctlFile);
 			this.executor = new CtlExecutor(setupOpts);
 		}
@@ -115,7 +116,7 @@ public class CtlController implements TestSuiteController {
 	 * @param uri An absolute or relative URI.
 	 * @return A File object, or null if one could not be created.
 	 */
-	final File findScriptFile(URI uri) {
+	final Object findScriptFile(URI uri) {
 		File ctlFile = null;
 		File baseDir = SetupOptions.getBaseConfigDirectory();
 		if (!uri.isAbsolute()) {
@@ -124,6 +125,13 @@ public class CtlController implements TestSuiteController {
 		}
 		if (null == ctlFile || !ctlFile.isFile()) {
 			URL resource = getClass().getResource(uri.getPath());
+			if (resource.getProtocol().equals("jar")) {
+				// See https://github.com/opengeospatial/ets-wms13/issues/120 and
+				// https://github.com/opengeospatial/teamengine/issues/632
+				// will return an URL
+				return resource;
+			}
+			System.out.println(resource);
 			try {
 				ctlFile = new File(resource.toURI());
 			}
