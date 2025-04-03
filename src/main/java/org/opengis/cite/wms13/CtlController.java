@@ -131,7 +131,6 @@ public class CtlController implements TestSuiteController {
 				// will return an URL
 				return resource;
 			}
-			System.out.println(resource);
 			try {
 				ctlFile = new File(resource.toURI());
 			}
